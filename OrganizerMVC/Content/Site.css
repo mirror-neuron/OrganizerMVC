@@ -1,0 +1,58 @@
+﻿body {
+    font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.w3-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 1100px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* Timepicker */
+.ui-timepicker-div dl
+{
+	text-align: left;
+}
+.ui-timepicker-div dl dt
+{
+	height: 25px;
+}
+.ui-timepicker-div dl dd
+{
+	margin: -25px 0 10px 65px;
+}
+.style1
+{
+	width: 100%;
+}
+
+/* Fullcalendar */
+#calendar
+{
+	width: 60%;
+    min-width: 500px;
+	margin: 0 auto;
+    text-align: center;
+	font-size: 14px;
+}
+.alignRight
+{
+	text-align:right;
+	padding-right:10px;
+	padding-bottom:10px;
+}
+.alignLeft
+{
+	text-align:left;
+	padding-bottom:10px;
+}
