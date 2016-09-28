@@ -97,19 +97,32 @@
         <div class="w3-row w3-margin-top">
             <div class="w3-col m3">
                 <button onclick="document.getElementById('addContact').style.display='block'" class="w3-btn-block w3-green">Добавить</button>
-                <div id="addContact" class="w3-modal">
-                    <div class="w3-modal-content">
+                <div id="addContact" class="w3-modal w3-card-4">
+                    <div class="w3-modal-content w3-animate-bottom">
                         <header class="w3-container w3-green">
                             <span onclick="document.getElementById('addContact').style.display='none'" class="w3-closebtn">&times;</span>
                             <h2>Добавить контакт</h2>
                         </header>
-                        <div class="w3-container">
-                            <p>Фамилия..</p>
-                            <p>Имя..</p>
+                        <form class="w3-container" action="form.asp">
+
+                            <p>
+                                <label>Фамилия</label>
+                                <input class="w3-input w3-border" name="Lastname" type="text"/>
+                            </p>
+
+                            <p>
+                                <label>Имя</label>
+                                <input class="w3-input w3-border" name="Firstname" type="text"/>
+                            </p>
+                            <p>
+                                <label>Отчество</label>
+                                <input class="w3-input w3-border" name="Patronimic" type="text"/>
+                            </p>
+                        </form>
+                        <div class="w3-container w3-light-grey w3-border-top w3-padding-8">
+                            <button class="w3-btn w3-right w3-green "
+                                    onclick="document.getElementById('addContact').style.display = 'none'">Close</button>
                         </div>
-                        <footer class="w3-container w3-green">
-                            <button onclick="document.getElementById('addContact').style.display='none'" class="w3-btn-block w3-green">Сохранить</button>
-                        </footer>
                     </div>
                 </div>
             </div>
@@ -117,8 +130,8 @@
             <div class="w3-col m9 w3-display-container">
                 <div class="w3-right-align">
                     <span><button onclick="document.getElementById('changeContact').style.display='block'" class="w3-btn w3-blue">Изменить</button></span>
-                    <div id="addContact" class="w3-modal">
-                        <div class="w3-modal-content">
+                    <div id="changeContact" class="w3-modal w3-card-4">
+                        <div class="w3-modal-content w3-animate-bottom">
                             <header class="w3-container w3-blue">
                                 <span onclick="document.getElementById('changeContact').style.display = 'none'" class="w3-closebtn">&times;</span>
                                 <h2>Изменить контакт</h2>
@@ -127,21 +140,21 @@
                                 <p>Фамилия..</p>
                                 <p>Имя..</p>
                             </div>
-                            <footer class="w3-container w3-blue">
-                                <button onclick="document.getElementById('changeContact').style.display = 'none'" class="w3-btn-block w3-blue">Изменить</button>
-                            </footer>
+                            <div class="w3-container w3-light-grey w3-border-top w3-padding-8">
+                                <button onclick="document.getElementById('changeContact').style.display = 'none'" class="w3-btn w3-right w3-blue">Изменить</button>
+                            </div>
                         </div>
                     </div>
                     <span><button onclick="document.getElementById('delContact').style.display='block'" class="w3-btn w3-red">Удалить</button></span>
-                    <div id="addContact" class="w3-modal">
-                        <div class="w3-modal-content">
-                            <header class="w3-container w3-blue">
+                    <div id="delContact" class="w3-modal w3-card-4">
+                        <div class="w3-modal-content w3-animate-bottom">
+                            <header class="w3-container w3-red">
                                 <span onclick="document.getElementById('delContact').style.display = 'none'" class="w3-closebtn">&times;</span>
                                 <h2>Удалить контакт?</h2>
                             </header>
-                            <footer class="w3-container w3-blue">
-                                <button onclick="document.getElementById('delContact').style.display = 'none'" class="w3-btn-block w3-blue">Да</button>
-                            </footer>
+                            <div class="w3-container w3-light-grey w3-border-top w3-padding-8">
+                                <button onclick="document.getElementById('delContact').style.display = 'none'" class="w3-btn w3-right w3-red">Да</button>
+                            </div>
                         </div>
                     </div>
                 </div>
