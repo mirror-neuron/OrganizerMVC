@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Контакты - Электронный органайзер ASP.NET</title>
+
+    <!-- W3.CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="./Content/w3-framework.css" rel="stylesheet" />
+
+    <!-- jQuery -->
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+    <link href="~/scripts/qTip/jquery.qtip.css" rel="stylesheet" />    
+    <script src="~/scripts/jquery-2.1.1.intellisense.js"></script>
+    <script src="~/scripts/jquery-2.1.1.js"></script>
+    <script src="~/scripts/jquery-ui-1.11.4.min.js"></script>
+    <script src="~/scripts/jquery-ui-sliderAccess.js"></script>
+
+    <!-- only for scheduler page (!) -->
+    <link href="~/Content/fullcalendar.css" rel="stylesheet" />
+    <script src="~/scripts/fullcalendar.js"></script>
+    <script src="~/scripts/fullcalendar-usage.js"></script>
+    <script src="~/scripts/gcal.js"></script>
+    <script src="~/scripts/lang/ru.js"></script>
+    <link href="~/Content/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+    <script src="~/scripts/jquery-ui-timepicker-addon.js"></script>
+    <script src="~/scripts/i18n/jquery-ui-timepicker-ru.js"></script>
+
+    <!-- main style -->
+    <link href="/Content/font-awesome.css" rel="stylesheet" />
+    <link href="/Content/Site.css" rel="stylesheet" />
+    
+    <!--[if lt IE 9]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <script src="~/scripts/selectivizr-1.0.2.js"></script>
+        <script src="~/scripts/html5shiv.js"></script>
+        <script src="~/scripts/respond.js"></script>
+    <!-- <![endif] -->
+</head>
+<body>
+    
+<!-- Crazy W3.CSS navbar -->
+<ul class="w3-navbar w3-red w3-card-2 w3-top w3-left-align w3-large">
+    <li class="w3-hide-large w3-opennav w3-left">
+        <a class="w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></li>
+    </li>
+    <li class="w3-margin-left w3-hide-medium w3-hide-small ">
+        <a class="w3-padding-large w3-hover-white" href="/">Техническое задание</li>
+    </li>
+    <li class="w3-hide-medium w3-hide-small ">
+        <a class="w3-padding-large w3-hover-white" href="/Progress">Прогресс</li>
+    </li>
+    <li class="w3-hide-medium w3-hide-small ">
+        <a class="w3-padding-large w3-hover-white" href="/Scheduler">Ежедневник</li>
+    </li>
+    <li class="w3-hide-medium w3-hide-small w3-white">
+        <a class="w3-padding-large w3-hover-white" href="/Contacts">Контакты</li>
+    </li>
+</ul>
+
+
+    <div class="w3-row-padding w3-padding-64 w3-container w3-content">
+        
+<div class="row">
+	<div class="w3-col m3">
+	<script>
+		function myFunction() {
+			var input, filter, ul, li, a, i;
+			input = document.getElementById("myInput");
+			filter = input.value.toUpperCase();
+			ul = document.getElementById("myList");
+			li = ul.getElementsByTagName("li");
+			for (i = 0; i < li.length; i++) {
+				if (li[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+					li[i].style.display = "";
+				} else {
+					li[i].style.display = "none";
+				}
+			}
+		}
+		</script>
+	<a href="#"><input class="w3-input w3-border w3-padding" type="text" placeholder="Search for names.." id="myInput" onkeyup="myFunction()" onclick=""></a>
+	
+	<ul id="myList" class="w3-ul w3-margin-top" style="height: 600px; overflow-y: scroll;">
+		<li class="w3-hover-grey">Азамат Абдураимов</li>
+		<li class="w3-hover-grey">Азамат Абдураимов</li>
+		<li class="w3-hover-grey">Валери Абрамидзе</li>
+		<li class="w3-hover-grey">Михаил Авербух</li>
+		<li class="w3-hover-grey">Владимир Агапов</li>
+		<li class="w3-hover-grey">Леонард Адамов</li>
+		<li class="w3-hover-grey">Лоуренс Аджей</li>
+		<li class="w3-hover-grey">Гурам Аджоев</li>
+		<li class="w3-hover-grey">Анатолий Акимов</li>
+		<li class="w3-hover-grey">Валерий Алабужев</li>
+		<li class="w3-hover-grey">Антон Алексеев</li>
+		<li class="w3-hover-grey">Дмитрий Аленичев</li>
+		<li class="w3-hover-grey">Вячеслав Амбарцумян</li>
+		<li class="w3-hover-grey">Жано Ананидзе</li>
+		<li class="w3-hover-grey">Дмитрий Ананко</li>
+		<li class="w3-hover-grey">Андре Диас</li>
+		<li class="w3-hover-grey">Гурам Аджоев</li>
+		<li class="w3-hover-grey">Анатолий Акимов</li>
+		<li class="w3-hover-grey">Валерий Алабужев</li>
+		<li class="w3-hover-grey">Антон Алексеев</li>
+		<li class="w3-hover-grey">Дмитрий Аленичев</li>
+		<li class="w3-hover-grey">Берадор Абдураимов</li>
+		<li class="w3-hover-grey">Валери Абрамидзе</li>
+		<li class="w3-hover-grey">Михаил Авербух</li>
+		<li class="w3-hover-grey">Владимир Агапов</li>
+		<li class="w3-hover-grey">Леонард Адамов</li>
+		<li class="w3-hover-grey">Лоуренс Аджей</li>
+		<li class="w3-hover-grey">Анатолий Акимов</li>
+		<li class="w3-hover-grey">Валерий Алабужев</li>
+		<li class="w3-hover-grey">Антон Алексеев</li>
+		<li class="w3-hover-grey">Дмитрий Аленичев</li>
+		<li class="w3-hover-grey">Вячеслав Амбарцумян</li>
+		<li class="w3-hover-grey">Жано Ананидзе</li>
+		<li class="w3-hover-grey">Азамат Абдураимов</li>
+		<li class="w3-hover-grey">Берадор Абдураимов</li>
+		<li class="w3-hover-grey">Валери Абрамидзе</li>
+		<li class="w3-hover-grey">Михаил Авербух</li>
+		<li class="w3-hover-grey">Владимир Агапов</li>
+		<li class="w3-hover-grey">Леонард Адамов</li>
+	</ul>
+	
+	<button onclick="document.getElementById('addContact').style.display='block'" class="w3-btn-block w3-green w3-margin-top">Добавить</button>
+  <div id="addContact" class="w3-modal">
+	<div class="w3-modal-content">
+	  <header class="w3-container w3-green">
+		<span onclick="document.getElementById('addContact').style.display='none'"
+		class="w3-closebtn">&times;</span>
+		<h2>Добавить контакт</h2>
+	  </header>
+	  <div class="w3-container">
+		<p>Фамилия..</p>
+		<p>Имя..</p>
+	  </div>
+	  <footer class="w3-container w3-green">
+		<button onclick="document.getElementById('addContact').style.display='none'" class="w3-btn-block w3-green">Сохранить</button>
+	  </footer>
+	</div>
+  </div>
+  
+	</div>
+	<div class="w3-col m9">
+		<div class="w3-row">
+			<div class="w3-col s6 w3-container">
+				<h1>Клавдия<br/>Петровна<br/>Марковникова</h1>
+				<p>
+					<a href="#" class="w3-hover-white w3-hover-text-cyan w3-show-inline-block"><i class="fa fa-envelope"></i>k.markovna@gmail.com</li>
+				</p>
+				<p>
+					<a href="#" class="w3-hover-white w3-hover-text-blue w3-show-inline-block"><i class="fa fa-skype"></i>klvmarkovna213</li>
+				</p>
+				<p>
+					<a href="#" class="w3-hover-white w3-hover-text-indigo w3-show-inline-block"><i class="fa fa-facebook-official"></i> fb.me/markovnak</li>
+				</p>
+				<p>
+					<a href="#" class="w3-hover-white w3-hover-text-light-blue w3-show-inline-block"><i class="fa fa-twitter"></i> twitter.com/klavdianow</li>
+				</p>
+				<p>
+					<a href="#" class="w3-hover-white w3-hover-text-indigo w3-show-inline-block"><i class="fa fa-linkedin"></i> linked.in/kfcbest</li>
+				</p>
+			</div>
+			<img class="w3-col s6 w3-right-align w3-card-4" src="/Content/images/avatar6.png" width="100%"/>
+		</div>
+	</div>
+</div>
+
+	
+
+        <hr />
+        <footer>
+            <p>&copy; 2016 - Электронный органайзер ASP.NET</p>
+        </footer>
+    </div>
+	
+	
+
+</body>
+</html>

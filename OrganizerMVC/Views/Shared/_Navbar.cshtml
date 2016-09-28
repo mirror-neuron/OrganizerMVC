@@ -4,17 +4,17 @@
     <li class="w3-hide-large w3-opennav w3-left">
         <a class="w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     </li>
-    <li class="w3-margin-left w3-hide-medium w3-hide-small @(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "w3-white" : "")">
+    <li class="w3-margin-left w3-hide-medium w3-hide-small @(ViewContext.RouteData.Values["Controller"].ToString()== "Home" ? "w3-white" : "")">
         @Html.ActionLink("Техническое задание", "Index", "Home", new { area = "" }, new { @class = "w3-padding-large w3-hover-white" })
     </li>
-    <li class="w3-hide-medium w3-hide-small @(ViewContext.RouteData.Values["Action"].ToString() == "Progress" ? "w3-white" : "")">
-        @Html.ActionLink("Прогресс", "Progress", "Home", new { area = "" }, new { @class = "w3-padding-large w3-hover-white" })
+    <li class="w3-hide-medium w3-hide-small @(ViewContext.RouteData.Values["Controller"].ToString() == "Progress" ? "w3-white" : "")">
+        @Html.ActionLink("Прогресс", "Index", "Progress", new { area = "" }, new { @class = "w3-padding-large w3-hover-white" })
     </li>
-    <li class="w3-hide-medium w3-hide-small @(ViewContext.RouteData.Values["Action"].ToString() == "Scheduler" ? "w3-white" : "")">
-        @Html.ActionLink("Ежедневник", "Scheduler", "Home", new { area = "" }, new { @class = "w3-padding-large w3-hover-white" })
+    <li class="w3-hide-medium w3-hide-small @(ViewContext.RouteData.Values["Controller"].ToString() == "Scheduler" ? "w3-white" : "")">
+        @Html.ActionLink("Ежедневник", "Index", "Scheduler", new { area = "" }, new { @class = "w3-padding-large w3-hover-white" })
     </li>
-    <li class="w3-hide-medium w3-hide-small @(ViewContext.RouteData.Values["Action"].ToString() == "Contacts" ? "w3-white" : "")">
-        @Html.ActionLink("Контакты", "Contacts", "Home", new { area = "" }, new { @class = "w3-padding-large w3-hover-white" })
+    <li class="w3-hide-medium w3-hide-small @(ViewContext.RouteData.Values["Controller"].ToString() == "Contacts" ? "w3-white" : "")">
+        @Html.ActionLink("Контакты", "Index", "Contacts", new { area = "" }, new { @class = "w3-padding-large w3-hover-white" })
     </li>
 </ul>
 
@@ -22,8 +22,9 @@
 <div id="navDemo" class="w3-hide w3-hide-large w3-top" style="margin-top:51px">
     <ul class="w3-navbar w3-left-align w3-medium w3-large w3-black">
         <li>@Html.ActionLink("Имя приложения", "Index", "Home", new { area = "" }, new { @class = "w3-padding-large" })</li>
-        <li>@Html.ActionLink("Ежедневник", "Scheduler", "Home", new { area = "" }, new { @class = "w3-padding-large" })</li>
-        <li>@Html.ActionLink("Контакты", "Contacts", "Home", new { area = "" }, new { @class = "w3-padding-large" })</a></li>
+        <li>@Html.ActionLink("Прогресс", "Index", "Progress", new { area = "" }, new { @class = "w3-padding-large" })</li>
+        <li>@Html.ActionLink("Ежедневник", "Index", "Scheduler", new { area = "" }, new { @class = "w3-padding-large" })</li>
+        <li>@Html.ActionLink("Контакты", "Index", "Contacts", new { area = "" }, new { @class = "w3-padding-large" })</a></li>
     </ul>
 </div>
 

@@ -244,6 +244,9 @@
     <Content Include="Views\Shared\_Template.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ContactsController.cs" />
+    <Compile Include="Controllers\ProgressController.cs" />
+    <Compile Include="Controllers\SchedulerController.cs" />
     <Compile Include="Models\CalendarEvent.cs" />
     <Compile Include="Models\EventDAO.cs" />
     <Compile Include="Models\ImproperCalendarEvent.cs" />
@@ -300,10 +303,10 @@
     <Content Include="scripts\jquery-2.1.1.min.map" />
     <Content Include="Views\Shared\_Navbar.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Contacts.cshtml" />
-    <Content Include="Views\Home\Scheduler.cshtml" />
+    <Content Include="Views\Contacts\Index.cshtml" />
+    <Content Include="Views\Scheduler\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Home\Progress.cshtml" />
+    <Content Include="Views\Progress\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

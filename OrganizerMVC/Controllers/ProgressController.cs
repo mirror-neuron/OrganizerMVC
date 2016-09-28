@@ -6,14 +6,11 @@ using System.Web.Mvc;
 
 namespace OrganizerMVC.Controllers
 {
-    public class HomeController : Controller
+    public class ProgressController : Controller
     {
-        // GET: Home
         public ActionResult Index()
         {
-            ViewBag.Message = "Главная.";
-
-            return View("Index");
+            return View();
         }
     }
 }
