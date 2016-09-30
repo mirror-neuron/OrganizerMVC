@@ -1,4 +1,4 @@
-﻿        @model IEnumerable<OrganizerMVC.App_Data.Contacts>
+﻿        @model OrganizerMVC.Models.FullContacts
 
         @{
             ViewBag.Title = "Контакты";
@@ -28,30 +28,16 @@
                 </script>
 
                 <ul id="myList" class="w3-ul w3-margin-top" style="height: 600px; overflow-y:scroll">
-                    @foreach (var item in Model) {
-                        <li class="w3-hover-grey">@Html.DisplayFor(modelItem => item.Name) @Html.DisplayFor(modelItem => item.Patronymic) @Html.DisplayFor(modelItem => item.Surname)</li>
+                    @foreach (var item in Model.Contacts)
+                    {
+                        //<li class="w3-hover-grey">@item.Name @item.Surname</li>
+                        <li class="w3-hover-grey">@Html.ActionLink(String.Format("{0} {1} {2}", item.Name, item.Patronymic, item.Surname), "Index", new { id = item.Id })</li>
                     }
                 </ul>
             </div>
             <!-- подробная информация -->
             <div class="w3-col m9 w3-container">
-                <div class="w3-row">
-                    <div class="w3-col l8">
-                        <h3>Клавдия<br />Петровна<br />Марковникова</h3>
-                        <p>
-                            <i class="fa fa-phone" aria-hidden="true"></i>
-                        </p>
-                        <p>
-                            <a href="#" class="w3-hover-white w3-hover-text-cyan w3-show-inline-block"><i class="fa fa-envelope" aria-hidden="true"></i>k.markovna@gmail.com</a>
-                        </p>
-                        <p>
-                            <a href="#" class="w3-hover-white w3-hover-text-blue w3-show-inline-block"><i class="fa fa-skype" aria-hidden="true"></i>klvmarkovna213</a>
-                        </p>
-                    </div>
-                    <div class="w3-col l4">
-                        <img class="w3-card-4" src="/Content/images/avatar6.png" width="100%" />
-                    </div>
-                </div>
+                @Html.Partial("Details", Model.Focus)
             </div>
         </div>
 
@@ -112,12 +98,12 @@
                     </div>
                     <div class="w3-row">
                         <script>
-                                            function cloneInput(childId, parentId) {
-                                                var newphone = document.getElementById(childId).cloneNode(true);
-                                                newphone.removeAttribute("id");
-                                                newphone.getElementsByTagName("input")[0].value = "";
-                                                document.getElementById(parentId).appendChild(newphone);
-                                            }
+                            function cloneInput(childId, parentId) {
+                                var newphone = document.getElementById(childId).cloneNode(true);
+                                newphone.removeAttribute("id");
+                                newphone.getElementsByTagName("input")[0].value = "";
+                                document.getElementById(parentId).appendChild(newphone);
+                            }
                         </script>
                         <div class="w3-col m4">
                             <p id="phones">
@@ -182,7 +168,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!--удалить контакт-->
         <div id="delContact" class="w3-modal w3-card-4">
             <div class="w3-modal-content w3-animate-bottom">

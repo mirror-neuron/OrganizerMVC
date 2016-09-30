@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using OrganizerMVC.App_Data;
+using OrganizerMVC.Models;
 
 namespace OrganizerMVC.Controllers
 {
@@ -14,25 +15,34 @@ namespace OrganizerMVC.Controllers
     {
         private DbEntities db = new DbEntities();
 
-        // GET: Contacts
-        public ActionResult Index()
+        private Contacts FindOrRandom(int? id)
         {
-            return View(db.Contacts.ToList());
+            if (id == null)
+            {
+                int random = (new Random()).Next(db.Contacts.Count());
+                return db.Contacts.OrderBy(x => x.Id).Skip(random).FirstOrDefault();
+            }
+            else
+            {
+                return db.Contacts.Find(id);
+            }
+        }
+
+        // GET: Contacts
+        public ActionResult Index(int? id)
+        {
+            return View(new FullContacts { Focus = FindOrRandom(id), Contacts = db.Contacts.ToList() });
         }
 
         // GET: Contacts/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Contacts contacts = db.Contacts.Find(id);
-            if (contacts == null)
+            Contacts contact = FindOrRandom(id);
+            if (contact == null)
             {
                 return HttpNotFound();
             }
-            return View(contacts);
+            return View(contact);
         }
 
         // GET: Contacts/Create
