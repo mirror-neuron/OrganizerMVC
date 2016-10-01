@@ -1,0 +1,54 @@
+﻿                @model OrganizerMVC.Models.Contacts
+            
+                <div class="w3-col l8">
+                    <div class="w3-col l8">
+                        <h3>@Model.Surname<br/>@Model.Name<br />@Model.Patronymic</h3>
+                        <p>
+                            <i class="fa fa-calendar-plus-o" aria-hidden="true"></i> @Model.Birthday.Value.ToShortDateString()
+                        </p>
+                        <p>
+                            <i class="fa fa-building-o" aria-hidden="true"></i> @Model.Organization
+                        </p>
+                        <p>
+                            <i class="fa fa-briefcase" aria-hidden="true"></i> @Model.Position
+                        </p>
+                        @foreach (var item in @Model.ContactsPhones)
+                        {
+                            <p>
+                                <i class="fa fa-phone" aria-hidden="true"></i> @item.Phone
+                            </p>
+                        }
+                        @foreach (var item in @Model.ContactsEmails)
+                        {
+                            <p>
+                                <i class="fa fa-envelope" aria-hidden="true"></i> @item.Email
+                            </p>
+                        }
+                        @foreach (var item in @Model.ContactsSkypes)
+                        {
+                            <p>
+                                <i class="fa fa-skype" aria-hidden="true"></i> @item.Skype
+                            </p>
+                        }
+                    </div>
+                </div>
+                <div class="w3-col l4">
+                    @switch (Model.Gender)
+                    {
+                        case 0:     //Female
+                            switch (Model.Name.Length % 2) {
+                                case 0: <img class="w3-card-4" src="/Content/images/avatar0.png" style="width:100%" /> break;
+                                default: <img class="w3-card-4" src="/Content/images/avatar00.png" style="width:100%" /> break;
+                            }
+                            break;
+                        case 1:     //Male
+                            switch (Model.Name.Length % 2) {
+                                case 0: <img class="w3-card-4" src="/Content/images/avatar1.png" style="width:100%" /> break;
+                                default: <img class="w3-card-4" src="/Content/images/avatar11.png" style="width:100%" /> break;
+                            }
+                            break;
+                        default:    //Unknown
+                            <img class="w3-card-4" src="/Content/images/avatar2.png" style="width:100%" />
+                            break;
+                    }
+                </div>

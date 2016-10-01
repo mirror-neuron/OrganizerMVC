@@ -7,18 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OrganizerMVC.App_Data
+namespace OrganizerMVC.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ContactsPhones
+    public partial class Events
     {
         public int Id { get; set; }
-        public int ContactId { get; set; }
+        public byte Status { get; set; }
         public string Type { get; set; }
-        public string Phone { get; set; }
-    
-        public virtual Contacts Contacts { get; set; }
+        public string Subject { get; set; }
+        public System.DateTime StartDate { get; set; }
+        public Nullable<System.DateTime> EndDate { get; set; }
+        public string Place { get; set; }
     }
 }

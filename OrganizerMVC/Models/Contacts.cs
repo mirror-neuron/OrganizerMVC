@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OrganizerMVC.App_Data
+namespace OrganizerMVC.Models
 {
     using System;
     using System.Collections.Generic;
@@ -30,6 +30,7 @@ namespace OrganizerMVC.App_Data
         public Nullable<System.DateTime> Birthday { get; set; }
         public string Organization { get; set; }
         public string Position { get; set; }
+        public Nullable<byte> Gender { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ContactsEmails> ContactsEmails { get; set; }

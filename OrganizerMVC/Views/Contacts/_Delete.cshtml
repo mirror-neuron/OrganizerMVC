@@ -1,0 +1,22 @@
+﻿        @model OrganizerMVC.Models.Contacts
+        
+        <!-- модальная форма -->
+        <div id="delContact" class="w3-modal w3-card-4">
+            <div class="w3-modal-content w3-animate-bottom">
+                <header class="w3-container w3-red">
+                    <span onclick="document.getElementById('delContact').style.display = 'none'" class="w3-closebtn">&times;</span>
+                    <h2>Осторожно</h2>
+                </header>
+
+                <div class="w3-container">
+                    <h4>Вы уверены, что хотите удалить контакт?</h4>
+                </div>
+                <div class="w3-container w3-light-grey w3-border-top w3-padding-8">
+                    @using (Html.BeginForm("Delete", "Contacts", new { Id = Model.Id }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <input type="submit" value="Delete" class="w3-btn w3-right w3-red" onclick="document.getElementById('delContact').style.display = 'none'"/>
+                    }
+                </div>
+            </div>
+        </div>

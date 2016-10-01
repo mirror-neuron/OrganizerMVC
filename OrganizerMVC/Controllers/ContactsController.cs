@@ -6,7 +6,6 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using OrganizerMVC.App_Data;
 using OrganizerMVC.Models;
 
 namespace OrganizerMVC.Controllers
@@ -14,7 +13,8 @@ namespace OrganizerMVC.Controllers
     public class ContactsController : Controller
     {
         private DbEntities db = new DbEntities();
-
+        
+        //private controller helper
         private Contacts FindOrRandom(int? id = null)
         {
             if (id == null)
@@ -35,14 +35,14 @@ namespace OrganizerMVC.Controllers
         }
 
         // GET: Contacts/Details/5
-        public PartialViewResult Details(int? id)
+        private PartialViewResult Details(int? id)
         {
             Contacts contact = FindOrRandom(id);
             if (contact == null)
             {
-                //return HttpNotFound();
+                return PartialView("Error");
             }
-            return PartialView("Details", contact);
+            return PartialView("_Details", contact);
         }
 
         // GET: Contacts/Create
@@ -55,7 +55,7 @@ namespace OrganizerMVC.Controllers
         // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
         // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        /*[ValidateAntiForgeryToken]*/
+        [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Surname,Name,Patronymic,Birthday,Organization,Position")] Contacts contacts)
         {
             if (ModelState.IsValid)
@@ -68,56 +68,41 @@ namespace OrganizerMVC.Controllers
             return View(contacts);
         }
 
-        // GET: Contacts/Edit/5
-        public ActionResult Edit(int? id)
+        // GET: Scheduler/Edit/5
+        public PartialViewResult Edit(int? id)
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return PartialView(new HttpStatusCodeResult(HttpStatusCode.BadRequest));
             }
             Contacts contacts = db.Contacts.Find(id);
             if (contacts == null)
             {
-                return HttpNotFound();
+                return PartialView(HttpNotFound());
             }
-            return View(contacts);
+            return PartialView("_Edit", contacts);
         }
 
         // POST: Contacts/Edit/5
         // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
         // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        /*[ValidateAntiForgeryToken]*/
+        [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Surname,Name,Patronymic,Birthday,Organization,Position")] Contacts contacts)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(contacts).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { Id = contacts.Id });
             }
             return View(contacts);
         }
-
-        // GET: Contacts/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Contacts contacts = db.Contacts.Find(id);
-            if (contacts == null)
-            {
-                return HttpNotFound();
-            }
-            return View();
-        }
-
+        
         // POST: Contacts/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult Delete(int id)
         {
             Contacts contacts = db.Contacts.Find(id);
             db.Contacts.Remove(contacts);

@@ -110,6 +110,9 @@ UPDATE Contacts SET Surname = N'Шапошников',Name = N'Адам',Patrony
 UPDATE Contacts SET Surname = N'Шуличенко',Name = N'Екатерина',Patronymic = N'Кузьмевна' WHERE Id= 98;
 UPDATE Contacts SET Surname = N'Седова',Name = N'Светлана',Patronymic = N'Глебовна' WHERE Id= 99;
 UPDATE Contacts SET Surname = N'Коченков',Name = N'Осип',Patronymic = N'Ерофеевич' WHERE Id= 100;
+--ALTER TABLE Contacts ADD Gender [TINYINT] NULL; --добавить колонку
+UPDATE Contacts SET Gender = 0 WHERE RIGHT(Patronymic, 2) = N'на'; --женщина
+UPDATE Contacts SET Gender = 1 WHERE RIGHT(Patronymic, 2) = N'ич'; --мужчина
 
 UPDATE [Contacts] SET [Organization] = 'Apple Systems' WHERE [Id] = 101;
 UPDATE [Contacts] SET [Organization] = 'Sibelius' WHERE [Id] = 102;

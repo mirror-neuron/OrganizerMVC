@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OrganizerMVC.App_Data
+namespace OrganizerMVC.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ContactsEmails
+    public partial class ContactsOthers
     {
         public int Id { get; set; }
         public int ContactId { get; set; }
-        public string Email { get; set; }
+        public string Other { get; set; }
     
         public virtual Contacts Contacts { get; set; }
     }

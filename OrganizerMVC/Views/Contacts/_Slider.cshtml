@@ -1,0 +1,33 @@
+﻿            @model IEnumerable<OrganizerMVC.Models.Contacts>
+
+            <a href="#"><input class="w3-input w3-border w3-padding" type="text" placeholder="Поиск по имяни.." id="myInput" onkeyup="myFunction()" onclick=""></a>
+            <script>
+		                        function myFunction() {
+			                        var input, filter, ul, li, a, i;
+			                        input = document.getElementById("myInput");
+			                        filter = input.value.toUpperCase();
+			                        ul = document.getElementById("myList");
+			                        li = ul.getElementsByTagName("li");
+			                        for (i = 0; i < li.length; i++) {
+				                        if (li[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+					                        li[i].style.display = "";
+				                        } else {
+					                        li[i].style.display = "none";
+				                        }
+			                        }
+		                        }
+            </script>
+
+            <ul id="myList" class="w3-ul w3-margin-top" style="height: 600px; overflow-y:scroll">
+                @foreach (var item in Model)
+                {
+                    <li class="w3-hover-grey">@Html.ActionLink(String.Format("{0} {1} {2}", item.Surname, item.Name, item.Patronymic), "Index", new { Id = item.Id })</li>
+                    @*<!-- AJAX -->
+                    <li class="w3-hover-grey">@Ajax.ActionLink(String.Format("{0} {1} {2}", item.Surname, item.Name, item.Patronymic), "Details", new { id = @item.Id }, new AjaxOptions()
+                        {
+                            HttpMethod = "GET",
+                            UpdateTargetId = "detailsView",
+                            InsertionMode = InsertionMode.Replace
+                    })</li>*@
+                }
+            </ul>

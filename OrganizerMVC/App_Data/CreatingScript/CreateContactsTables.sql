@@ -1,9 +1,10 @@
 ﻿CREATE TABLE [dbo].[Contacts]
 (
 	[Id] INT IDENTITY (1, 1) NOT NULL, 
-    [Surname] NVARCHAR(50) NOT NULL, 
+    [Surname] NVARCHAR(50) NULL, 
     [Name] NVARCHAR(50) NULL, 
-	[Patronymic] NVARCHAR(50) NULL, 
+	[Patronymic] NVARCHAR(50) NULL,
+	[Gender] TINYINT(50)
     [Birthday] DATE NULL, 
     [Organization] NVARCHAR(50) NULL, 
     [Position] NVARCHAR(50) NULL, 

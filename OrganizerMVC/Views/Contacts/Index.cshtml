@@ -1,12 +1,7 @@
 ﻿        @model OrganizerMVC.Models.FullContacts
-
-        @using (Html.BeginForm("Index", "Contacts"))
-        {
-            @Html.AntiForgeryToken()
-        }
-
+        
         @{
-            ViewBag.Title = "Контакты";
+            ViewBag.Title = string.Format("{0} {1}", Model.Focus.Surname, Model.Focus.Name);
         }
 
         <h1>Контакты</h1>
@@ -14,52 +9,33 @@
         <div class="w3-row">
             <!-- слайдер -->
             <div class="w3-col m3">
-                <a href="#"><input class="w3-input w3-border w3-padding" type="text" placeholder="Поиск по имяни.." id="myInput" onkeyup="myFunction()" onclick=""></a>
-                <script>
-		            function myFunction() {
-			            var input, filter, ul, li, a, i;
-			            input = document.getElementById("myInput");
-			            filter = input.value.toUpperCase();
-			            ul = document.getElementById("myList");
-			            li = ul.getElementsByTagName("li");
-			            for (i = 0; i < li.length; i++) {
-				            if (li[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
-					            li[i].style.display = "";
-				            } else {
-					            li[i].style.display = "none";
-				            }
-			            }
-		            }
-                </script>
-
-                <ul id="myList" class="w3-ul w3-margin-top" style="height: 600px; overflow-y:scroll">
-                    @foreach (var item in Model.Contacts)
-                    {   
-                        <li class="w3-hover-grey">@Ajax.ActionLink(String.Format("{0} {1} {2}", item.Surname, item.Name, item.Patronymic), "Details", new { id = @item.Id }, new AjaxOptions()
-                                             {
-                                                 HttpMethod = "GET",
-                                                 UpdateTargetId = "contactDetails",
-                                                 InsertionMode = InsertionMode.Replace
-                                             })</li>
-                    }
-
-                </ul>
+                @Html.Partial("_Slider", Model.Contacts)
             </div>
-            <!-- подробная информация -->
+            <!-- подробная информация контакта -->
             <div class="w3-col m9 w3-container">
-                @Html.Partial("Details", Model.Focus)
+                <div id="detailsPartialView" class="w3-row">
+                    @Html.Partial("_Details", @Model.Focus)
+                </div>
             </div>
         </div>
 
-        <!-- кнопки формы -->
+        <!-- кнопки добавить/изменить/удалить -->
         <div class="w3-row w3-margin-top">
             <div class="w3-col m3">
-                <button onclick="document.getElementById('addContact').style.display='block'" class="w3-btn-block w3-green">Добавить</button>
+                <button onclick="document.getElementById('addContact').style.display='block'" class="w3-btn-block w3-green">Добавить</but   ton>
             </div>
 
             <div class="w3-col m9 w3-display-container">
                 <div class="w3-right-align">
-                    <span><button onclick="document.getElementById('changeContact').style.display='block'" class="w3-btn w3-blue">Изменить</button></span>
+                    <!--изменить контакт-->
+                    <span>
+                        @Ajax.ActionLink("Изменить", "Edit", new { Id = Model.Focus.Id }, new AjaxOptions()
+                           {
+                               HttpMethod = "GET",
+                               UpdateTargetId = "detailsPartialView",
+                               InsertionMode = InsertionMode.Replace
+                           }, new { @class = "w3-btn w3-blue" })
+                    </span>
                     <span><button onclick="document.getElementById('delContact').style.display='block'" class="w3-btn w3-red">Удалить</button></span>
                 </div>
             </div>
@@ -154,44 +130,12 @@
                     </div>
                 </form>
                 <div class="w3-container w3-light-grey w3-border-top w3-padding-8">
-                    <button class="w3-btn w3-right w3-green "
-                            onclick="document.getElementById('addContact').style.display = 'none'">
+                    <button class="w3-btn w3-right w3-green" onclick="document.getElementById('addContact').style.display = 'none'">
                         Close
                     </button>
                 </div>
             </div>
         </div>
 
-        <!--изменить контакт-->
-        <div id="changeContact" class="w3-modal w3-card-4">
-            <div class="w3-modal-content w3-animate-bottom">
-                <header class="w3-container w3-blue">
-                    <span onclick="document.getElementById('changeContact').style.display = 'none'" class="w3-closebtn">&times;</span>
-                    <h2>Изменить контакт</h2>
-                </header>
-                <div class="w3-container">
-                    <p>Фамилия..</p>
-                    <p>Имя..</p>
-                </div>
-                <div class="w3-container w3-light-grey w3-border-top w3-padding-8">
-                    <button onclick="document.getElementById('changeContact').style.display = 'none'" class="w3-btn w3-right w3-blue">Изменить</button>
-                </div>
-            </div>
-        </div>
-
-       
-
-        <!--удалить контакт-->
-        <div id="delContact" class="w3-modal w3-card-4">
-            <div class="w3-modal-content w3-animate-bottom">
-                <header class="w3-container w3-red">
-                    <span onclick="document.getElementById('delContact').style.display = 'none'" class="w3-closebtn">&times;</span>
-                    <h2>Удалить контакт?</h2>
-                </header>
-                <div class="w3-container w3-light-grey w3-border-top w3-padding-8">
-                    <form method="post" action="/Contacts/Delete/@Model.Focus.Id">
-                        <button onclick="document.getElementById('delContact').style.display = 'none'" class="w3-btn w3-right w3-red">Да</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+        <!-- удалить контакт-->
+        @Html.Partial("_Delete", Model.Focus)

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OrganizerMVC.App_Data
+namespace OrganizerMVC.Models
 {
     using System;
     using System.Data.Entity;
