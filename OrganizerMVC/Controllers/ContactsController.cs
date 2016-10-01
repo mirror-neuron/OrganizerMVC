@@ -35,14 +35,14 @@ namespace OrganizerMVC.Controllers
         }
 
         // GET: Contacts/Details/5
-        public ActionResult Details(int? id)
+        public PartialViewResult Details(int? id)
         {
             Contacts contact = FindOrRandom(id);
             if (contact == null)
             {
-                return HttpNotFound();
+                //return HttpNotFound();
             }
-            return View(contact);
+            return PartialView("Details", contact);
         }
 
         // GET: Contacts/Create
@@ -55,7 +55,7 @@ namespace OrganizerMVC.Controllers
         // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
         // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        /*[ValidateAntiForgeryToken]*/
         public ActionResult Create([Bind(Include = "Id,Surname,Name,Patronymic,Birthday,Organization,Position")] Contacts contacts)
         {
             if (ModelState.IsValid)
@@ -87,7 +87,7 @@ namespace OrganizerMVC.Controllers
         // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
         // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        /*[ValidateAntiForgeryToken]*/
         public ActionResult Edit([Bind(Include = "Id,Surname,Name,Patronymic,Birthday,Organization,Position")] Contacts contacts)
         {
             if (ModelState.IsValid)
