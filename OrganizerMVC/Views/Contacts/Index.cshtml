@@ -30,8 +30,7 @@
                 <ul id="myList" class="w3-ul w3-margin-top" style="height: 600px; overflow-y:scroll">
                     @foreach (var item in Model.Contacts)
                     {
-                        //<li class="w3-hover-grey">@item.Name @item.Surname</li>
-                        <li class="w3-hover-grey">@Html.ActionLink(String.Format("{0} {1} {2}", item.Name, item.Patronymic, item.Surname), "Index", new { id = item.Id })</li>
+                        <li class="w3-hover-grey">@Html.ActionLink(String.Format("{0} {1} {2}", item.Surname, item.Name, item.Patronymic), "Index", new { id = item.Id })</li>
                     }
                 </ul>
             </div>

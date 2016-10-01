@@ -31,7 +31,7 @@ namespace OrganizerMVC.Controllers
         // GET: Contacts
         public ActionResult Index(int? id)
         {
-            return View(new FullContacts { Focus = FindOrRandom(id), Contacts = db.Contacts.ToList() });
+            return View(new FullContacts { Focus = FindOrRandom(id), Contacts = db.Contacts.OrderBy(x=>x.Surname).ToArray() });
         }
 
         // GET: Contacts/Details/5
