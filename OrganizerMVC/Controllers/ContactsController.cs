@@ -15,7 +15,7 @@ namespace OrganizerMVC.Controllers
     {
         private DbEntities db = new DbEntities();
 
-        private Contacts FindOrRandom(int? id)
+        private Contacts FindOrRandom(int? id = null)
         {
             if (id == null)
             {
@@ -111,7 +111,7 @@ namespace OrganizerMVC.Controllers
             {
                 return HttpNotFound();
             }
-            return View(contacts);
+            return View();
         }
 
         // POST: Contacts/Delete/5

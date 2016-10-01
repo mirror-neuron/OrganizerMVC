@@ -1,5 +1,10 @@
 ﻿        @model OrganizerMVC.Models.FullContacts
 
+        @using (Html.BeginForm("Index", "Contacts"))
+        {
+            @Html.AntiForgeryToken()
+        }
+
         @{
             ViewBag.Title = "Контакты";
         }
@@ -168,6 +173,8 @@
             </div>
         </div>
 
+       
+
         <!--удалить контакт-->
         <div id="delContact" class="w3-modal w3-card-4">
             <div class="w3-modal-content w3-animate-bottom">
@@ -176,7 +183,9 @@
                     <h2>Удалить контакт?</h2>
                 </header>
                 <div class="w3-container w3-light-grey w3-border-top w3-padding-8">
-                    <button onclick="document.getElementById('delContact').style.display = 'none'" class="w3-btn w3-right w3-red">Да</button>
+                    <form method="post" action="/Contacts/Delete/@Model.Focus.Id">
+                        <button onclick="document.getElementById('delContact').style.display = 'none'" class="w3-btn w3-right w3-red">Да</button>
+                    </form>
                 </div>
             </div>
         </div>
