@@ -9,9 +9,8 @@ INSERT INTO Contacts([Surname],[Name],[Patronymic],[Birthday],[Organization],[Po
 INSERT INTO Contacts([Surname],[Name],[Patronymic],[Birthday],[Organization],[Position]) VALUES('Shepherd','Kiara','N','03/17/1993','Massa Consulting','Palmerston'),('Haynes','Maya','S','06/26/1994','Et Ultrices Posuere PC','Palencia'),('Richardson','Xandra','I','10/27/1987','Vitae Institute','Fosses-la-Ville'),('Mclean','Aladdin','K','10/04/1985','Nullam Lobortis Institute','Owensboro'),('Blankenship','Abigail','A','07/16/1993','Dis Parturient Montes Company','Cassano Spinola'),('Barr','Ariana','J','05/09/1990','Enim Limited','Isla de Maipo'),('Hyde','Kessie','H','12/07/1983','Vulputate Eu Inc.','Monticelli d''Ongina'),('Oneal','Inga','Q','12/10/1984','Sed Nec Metus Ltd','Sint-Martens-Bodegem'),('Graves','Peter','J','05/28/1984','Eget Volutpat LLP','Nieuwkapelle'),('Velasquez','Karyn','K','08/16/1988','Phasellus Dolor Ltd','Nemoli');
 INSERT INTO Contacts([Surname],[Name],[Patronymic],[Birthday],[Organization],[Position]) VALUES('Frost','Rahim','E','05/03/1985','Vitae Company','Turgutlu'),('Walton','Allegra','L','09/21/1994','Ipsum Leo Corporation','Karnal'),('Wynn','Andrew','W','05/26/1988','Orci In Incorporated','Vollezele'),('Mcdonald','Ross','I','06/11/1993','Ut Industries','Chicoutimi'),('Crawford','Melissa','N','11/27/1987','Dignissim Corp.','Guardia Perticara'),('Rodgers','Kirestin','X','10/13/1981','A Neque Consulting','Saarlouis'),('Glover','Sara','Z','08/16/1982','Lorem Incorporated','Guilmi'),('Hopper','Stella','D','10/21/1995','Risus Corporation','Sant''Angelo a Cupolo'),('Ortega','Arthur','U','06/07/1995','Lorem Luctus LLC','Itapipoca'),('Herman','Mercedes','I','08/15/1995','Sed Facilisis Vitae LLP','San Javier');
 
---id between 3 and 102:
-UPDATE Contacts SET Surname = N'Шаньгин',Name = N'Якуб',Patronymic = N'Феликсович' WHERE Id= 101;
-UPDATE Contacts SET Surname = N'Кошляк',Name = N'Тихон',Patronymic = N'Трофимович' WHERE Id= 102;
+UPDATE Contacts SET Surname = N'Шаньгин',Name = N'Якуб',Patronymic = N'Феликсович' WHERE Id= 1;
+UPDATE Contacts SET Surname = N'Кошляк',Name = N'Тихон',Patronymic = N'Трофимович' WHERE Id= 2;
 UPDATE Contacts SET Surname = N'Ахременко',Name = N'Игнатий',Patronymic = N'Моисеевич' WHERE Id= 3;
 UPDATE Contacts SET Surname = N'Берестова',Name = N'Виктория',Patronymic = N'Афанасиевна' WHERE Id= 4;
 UPDATE Contacts SET Surname = N'Разин',Name = N'Иннокентий',Patronymic = N'Архипович' WHERE Id= 5;
@@ -110,12 +109,12 @@ UPDATE Contacts SET Surname = N'Шапошников',Name = N'Адам',Patrony
 UPDATE Contacts SET Surname = N'Шуличенко',Name = N'Екатерина',Patronymic = N'Кузьмевна' WHERE Id= 98;
 UPDATE Contacts SET Surname = N'Седова',Name = N'Светлана',Patronymic = N'Глебовна' WHERE Id= 99;
 UPDATE Contacts SET Surname = N'Коченков',Name = N'Осип',Patronymic = N'Ерофеевич' WHERE Id= 100;
---ALTER TABLE Contacts ADD Gender [TINYINT] NULL; --добавить колонку
+
 UPDATE Contacts SET Gender = 0 WHERE RIGHT(Patronymic, 2) = N'на'; --женщина
 UPDATE Contacts SET Gender = 1 WHERE RIGHT(Patronymic, 2) = N'ич'; --мужчина
 
-UPDATE [Contacts] SET [Organization] = 'Apple Systems' WHERE [Id] = 101;
-UPDATE [Contacts] SET [Organization] = 'Sibelius' WHERE [Id] = 102;
+UPDATE [Contacts] SET [Organization] = 'Apple Systems' WHERE [Id] = 1;
+UPDATE [Contacts] SET [Organization] = 'Sibelius' WHERE [Id] = 2;
 UPDATE [Contacts] SET [Organization] = 'Sibelius' WHERE [Id] = 3;
 UPDATE [Contacts] SET [Organization] = 'Cakewalk' WHERE [Id] = 4;
 UPDATE [Contacts] SET [Organization] = 'Lavasoft' WHERE [Id] = 5;
@@ -215,8 +214,8 @@ UPDATE [Contacts] SET [Organization] = 'Cakewalk' WHERE [Id] = 98;
 UPDATE [Contacts] SET [Organization] = 'Borland' WHERE [Id] = 99;
 UPDATE [Contacts] SET [Organization] = 'Borland' WHERE [Id] = 100;
 
-UPDATE [Contacts] SET [Position] = 'Chief Technology Officer' WHERE [Id] = 101;
-UPDATE [Contacts] SET [Position] = 'Chief Information Officer' WHERE [Id] = 102;
+UPDATE [Contacts] SET [Position] = 'Chief Technology Officer' WHERE [Id] = 1;
+UPDATE [Contacts] SET [Position] = 'Chief Information Officer' WHERE [Id] = 2;
 UPDATE [Contacts] SET [Position] = 'Team Leader' WHERE [Id] = 3;
 UPDATE [Contacts] SET [Position] = 'Team Leader' WHERE [Id] = 4;
 UPDATE [Contacts] SET [Position] = 'Tester' WHERE [Id] = 5;
@@ -316,7 +315,6 @@ UPDATE [Contacts] SET [Position] = 'Software Developer' WHERE [Id] = 98;
 UPDATE [Contacts] SET [Position] = 'Project Manager' WHERE [Id] = 99;
 UPDATE [Contacts] SET [Position] = 'Team Leader' WHERE [Id] = 100;
 
---id between 3 and 102:
 INSERT INTO ContactsPhones([ContactId],[Type],[Phone]) VALUES(91,'Home','(105) 716-2438'),(17,'Work','(230) 620-4940'),(37,'Work','(735) 541-9309'),(40,'Work','(784) 346-1003'),(50,'Work','(616) 652-1057'),(35,'Work','(753) 312-7859'),(78,'Work','(468) 436-2521'),(36,'Work','(164) 993-3659'),(26,'Work','(616) 978-0678'),(54,'Work','(686) 979-2916');
 INSERT INTO ContactsPhones([ContactId],[Type],[Phone]) VALUES(6,'Mobile','(120) 912-5498'),(12,'Mobile','(398) 704-9891'),(87,'Home','(872) 743-8842'),(94,'Work','(542) 320-7341'),(81,'Work','(225) 959-5887'),(9,'Mobile','(562) 565-5617'),(28,'Work','(437) 491-2160'),(6,'Work','(106) 478-5326'),(82,'Mobile','(558) 113-8455'),(63,'Home','(870) 701-8572');
 INSERT INTO ContactsPhones([ContactId],[Type],[Phone]) VALUES(83,'Work','(368) 776-0524'),(41,'Work','(890) 861-8359'),(80,'Mobile','(479) 264-7353'),(66,'Work','(160) 997-8929'),(40,'Mobile','(932) 985-5117'),(56,'Work','(816) 913-1559'),(17,'Home','(486) 985-8193'),(54,'Mobile','(389) 855-7484'),(93,'Work','(713) 422-5677'),(19,'Work','(846) 601-1715');
@@ -335,7 +333,7 @@ INSERT INTO ContactsPhones([ContactId],[Type],[Phone]) VALUES(86,'Work','(729) 6
 
 INSERT INTO ContactsEmails([ContactId],[Email]) VALUES(42,'tortor.at.risus@semper.co.uk'),(51,'ornare.sagittis@idblanditat.edu'),(62,'mattis.semper@lacusQuisquepurus.ca'),(15,'feugiat.Sed@Mauris.co.uk'),(18,'Nullam.ut@Nullafacilisis.edu'),(76,'non@nunc.net'),(39,'risus.quis@diameu.com'),(14,'odio.a@Integeraliquam.ca'),(69,'at.velit.Pellentesque@nasceturridiculusmus.co.uk'),(75,'mi@natoque.com');
 INSERT INTO ContactsEmails([ContactId],[Email]) VALUES(15,'elementum@utdolordapibus.com'),(48,'Sed.eu@viverraMaecenas.ca'),(42,'lorem@nec.org'),(23,'metus.vitae.velit@nec.ca'),(35,'magna.Sed@semPellentesqueut.org'),(27,'Curae.Donec.tincidunt@Cum.ca'),(35,'neque.et@Suspendissecommodotincidunt.edu'),(12,'ipsum.dolor@accumsan.net'),(63,'Proin@nullamagnamalesuada.com'),(52,'at.iaculis@laoreetposuereenim.net');
-INSERT INTO ContactsEmails([ContactId],[Email]) VALUES(68,'risus.Quisque.libero@quis.com'),(101,'mi.eleifend.egestas@tortor.com'),(85,'ridiculus.mus.Donec@Phasellusdapibusquam.edu'),(20,'dolor.dapibus.gravida@sapienCrasdolor.com'),(36,'nisi@pedePraesent.com'),(91,'nec.euismod.in@nisi.net'),(29,'sem@Morbinequetellus.net'),(43,'et.magnis@eget.edu'),(99,'dolor.sit@risusDonecegestas.co.uk'),(95,'velit.eget.laoreet@tempusloremfringilla.net');
+INSERT INTO ContactsEmails([ContactId],[Email]) VALUES(68,'risus.Quisque.libero@quis.com'),(1,'mi.eleifend.egestas@tortor.com'),(85,'ridiculus.mus.Donec@Phasellusdapibusquam.edu'),(20,'dolor.dapibus.gravida@sapienCrasdolor.com'),(36,'nisi@pedePraesent.com'),(91,'nec.euismod.in@nisi.net'),(29,'sem@Morbinequetellus.net'),(43,'et.magnis@eget.edu'),(99,'dolor.sit@risusDonecegestas.co.uk'),(95,'velit.eget.laoreet@tempusloremfringilla.net');
 INSERT INTO ContactsEmails([ContactId],[Email]) VALUES(52,'vulputate@nequeMorbiquis.com'),(13,'luctus.Curabitur@lobortisultrices.net'),(58,'Vivamus@sit.org'),(81,'Maecenas.iaculis@leo.ca'),(90,'tincidunt@leoMorbineque.co.uk'),(86,'metus@anteNuncmauris.net'),(24,'sed.sapien.Nunc@ac.ca'),(68,'Sed.id.risus@atnisi.edu'),(11,'ultrices.a.auctor@lacusAliquam.com'),(85,'Donec@commodohendreritDonec.net');
 INSERT INTO ContactsEmails([ContactId],[Email]) VALUES(17,'Curabitur@libero.edu'),(29,'eleifend@ullamcorpernisl.net'),(15,'Quisque@velit.edu'),(90,'Integer.aliquam.adipiscing@ante.net'),(34,'mattis.Cras.eget@feugiat.co.uk'),(70,'diam.at@porttitorvulputateposuere.org'),(47,'iaculis@apurus.edu'),(33,'nunc.id@et.edu'),(32,'magna@Donecegestas.co.uk'),(69,'erat@eratin.com');
 INSERT INTO ContactsEmails([ContactId],[Email]) VALUES(56,'Mauris@pede.edu'),(90,'eu@tristiquesenectuset.com'),(53,'pede.nonummy@consectetueripsumnunc.co.uk'),(62,'faucibus.Morbi@Nam.co.uk'),(43,'nunc.nulla@risusDonecnibh.com'),(74,'ac.orci.Ut@aliquetliberoInteger.net'),(28,'Aliquam.nisl@nonummy.net'),(72,'mauris.Integer.sem@amet.co.uk'),(72,'luctus.Curabitur@at.com'),(98,'sollicitudin@condimentum.org');
@@ -356,13 +354,13 @@ INSERT INTO ContactsSkypes([ContactId],[Skype]) VALUES(76,'K.Ismail'),(88,'Trive
 INSERT INTO ContactsSkypes([ContactId],[Skype]) VALUES(16,'Umrao123'),(45,'Jain.J'),(46,'Chitral123'),(51,'Kumar.J'),(97,'M.Raj'),(51,'xVaishalix'),(91,'U.Khan'),(89,'Patel.K'),(91,'Kumar.X'),(73,'xPadmalochanax');
 UPDATE ContactsSkypes SET Skype = LOWER(Skype)
 
-INSERT INTO ContactsOthers([ContactId],[Other]) VALUES(11,'ipsum. Curabitur consequat, lectus'),(101,'nisl. Maecenas malesuada'),(88,'Duis a mi fringilla mi'),(57,'velit. Aliquam nisl. Nulla'),(65,'eget, venenatis a, magna. Lorem'),(81,'arcu. Vestibulum ante'),(66,'Nunc ullamcorper, velit'),(8,'dolor sit amet, consectetuer adipiscing'),(80,'lorem vitae odio sagittis semper.'),(30,'ullamcorper. Duis at');
+INSERT INTO ContactsOthers([ContactId],[Other]) VALUES(11,'ipsum. Curabitur consequat, lectus'),(1,'nisl. Maecenas malesuada'),(88,'Duis a mi fringilla mi'),(57,'velit. Aliquam nisl. Nulla'),(65,'eget, venenatis a, magna. Lorem'),(81,'arcu. Vestibulum ante'),(66,'Nunc ullamcorper, velit'),(8,'dolor sit amet, consectetuer adipiscing'),(80,'lorem vitae odio sagittis semper.'),(30,'ullamcorper. Duis at');
 INSERT INTO ContactsOthers([ContactId],[Other]) VALUES(16,'amet ante. Vivamus'),(29,'mauris eu elit. Nulla'),(99,'Cum sociis natoque'),(97,'urna justo faucibus'),(20,'semper rutrum. Fusce dolor'),(6,'pede nec ante blandit'),(30,'sagittis. Nullam vitae'),(11,'montes, nascetur ridiculus mus.'),(43,'pede. Praesent eu dui.'),(81,'enim. Etiam imperdiet');
-INSERT INTO ContactsOthers([ContactId],[Other]) VALUES(57,'fringilla est. Mauris eu'),(7,'tristique pharetra. Quisque ac'),(69,'tellus. Nunc lectus pede,'),(33,'nec tempus mauris'),(33,'scelerisque neque. Nullam nisl. Maecenas'),(41,'Aliquam rutrum lorem ac'),(101,'sit amet metus.'),(50,'vel, venenatis vel, faucibus'),(70,'orci lobortis augue'),(15,'diam at pretium aliquet, metus');
+INSERT INTO ContactsOthers([ContactId],[Other]) VALUES(57,'fringilla est. Mauris eu'),(7,'tristique pharetra. Quisque ac'),(69,'tellus. Nunc lectus pede,'),(33,'nec tempus mauris'),(33,'scelerisque neque. Nullam nisl. Maecenas'),(41,'Aliquam rutrum lorem ac'),(1,'sit amet metus.'),(50,'vel, venenatis vel, faucibus'),(70,'orci lobortis augue'),(15,'diam at pretium aliquet, metus');
 INSERT INTO ContactsOthers([ContactId],[Other]) VALUES(11,'Quisque varius. Nam porttitor scelerisque'),(76,'Etiam imperdiet dictum'),(5,'aliquet, sem ut cursus luctus,'),(52,'magna tellus faucibus leo, in'),(31,'condimentum. Donec at'),(66,'massa rutrum magna. Cras'),(95,'felis, adipiscing fringilla, porttitor vulputate,'),(89,'posuere cubilia Curae;'),(81,'nulla magna, malesuada vel,'),(58,'Fusce dolor quam,');
 INSERT INTO ContactsOthers([ContactId],[Other]) VALUES(46,'malesuada id, erat.'),(59,'molestie in, tempus eu, ligula.'),(96,'Donec egestas. Aliquam nec'),(83,'Aliquam tincidunt, nunc ac mattis'),(99,'non sapien molestie orci'),(5,'interdum enim non'),(30,'Proin non massa'),(87,'sagittis. Duis gravida. Praesent'),(63,'diam eu dolor egestas'),(46,'nulla ante, iaculis nec,');
 INSERT INTO ContactsOthers([ContactId],[Other]) VALUES(31,'vulputate velit eu sem.'),(36,'sem eget massa.'),(36,'lacus, varius et, euismod'),(44,'a purus. Duis elementum, dui'),(87,'amet orci. Ut'),(78,'facilisis eget, ipsum. Donec'),(56,'diam nunc, ullamcorper'),(100,'nascetur ridiculus mus.'),(65,'eleifend. Cras sed leo. Cras'),(28,'eu metus. In lorem.');
 INSERT INTO ContactsOthers([ContactId],[Other]) VALUES(17,'consectetuer euismod est arcu ac'),(26,'gravida mauris ut mi. Duis'),(98,'Duis elementum, dui quis'),(61,'urna. Vivamus molestie dapibus'),(26,'mollis. Duis sit amet'),(98,'iaculis quis, pede.'),(33,'scelerisque neque sed'),(19,'ridiculus mus. Aenean eget magna.'),(84,'Nam porttitor scelerisque neque. Nullam'),(5,'nulla. Donec non justo. Proin');
 INSERT INTO ContactsOthers([ContactId],[Other]) VALUES(30,'laoreet, libero et tristique pellentesque,'),(49,'gravida nunc sed pede. Cum'),(95,'elit. Nulla facilisi.'),(48,'ullamcorper eu, euismod ac,'),(21,'mi felis, adipiscing fringilla, porttitor'),(49,'pellentesque. Sed dictum.'),(76,'elit erat vitae'),(89,'Sed dictum. Proin eget odio.'),(78,'dui, nec tempus mauris erat'),(78,'orci. Ut sagittis lobortis mauris.');
 INSERT INTO ContactsOthers([ContactId],[Other]) VALUES(32,'magna. Cras convallis'),(44,'laoreet lectus quis massa.'),(26,'lobortis, nisi nibh lacinia orci,'),(96,'nunc sit amet metus.'),(48,'lorem ut aliquam'),(12,'nec mauris blandit'),(42,'massa rutrum magna. Cras'),(58,'Fusce diam nunc, ullamcorper'),(51,'tristique pellentesque, tellus sem'),(6,'arcu. Curabitur ut odio');
-INSERT INTO ContactsOthers([ContactId],[Other]) VALUES(71,'a, scelerisque sed, sapien.'),(102,'eget metus eu'),(21,'Maecenas libero est,'),(21,'est. Nunc ullamcorper, velit'),(52,'consequat, lectus sit amet'),(68,'Vestibulum ut eros'),(31,'sed consequat auctor,'),(83,'sem magna nec quam.'),(88,'fermentum convallis ligula. Donec'),(61,'lacus. Quisque purus sapien, gravida');
+INSERT INTO ContactsOthers([ContactId],[Other]) VALUES(71,'a, scelerisque sed, sapien.'),(2,'eget metus eu'),(21,'Maecenas libero est,'),(21,'est. Nunc ullamcorper, velit'),(52,'consequat, lectus sit amet'),(68,'Vestibulum ut eros'),(31,'sed consequat auctor,'),(83,'sem magna nec quam.'),(88,'fermentum convallis ligula. Donec'),(61,'lacus. Quisque purus sapien, gravida');
