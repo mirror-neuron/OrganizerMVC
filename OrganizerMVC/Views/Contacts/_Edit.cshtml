@@ -17,6 +17,12 @@
                 @Html.ValidationMessageFor(model => model.Patronymic, "", new { @class = "text-danger" })
             </h3>
         </p>
+        
+        <p>
+            <i class="fa fa-transgender" aria-hidden="true" style="float:left;"></i>
+            @Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "w3-input", @style = "padding: 0 2px; margin: 0;" } })
+            @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+        </p>
 
         <p>
             <i class="fa fa-transgender w3-padding-4" aria-hidden="true" style="float:left;"></i>
