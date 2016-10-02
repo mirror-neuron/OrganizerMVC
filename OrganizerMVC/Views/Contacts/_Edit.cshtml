@@ -1,70 +1,12 @@
 ﻿@model OrganizerMVC.Models.Contacts
 
-@*
-        <div class="w3-col l8">
-            <div class="w3-col l8">
-                <h3>@Model.Surname<br />@Model.Name<br />@Model.Patronymic</h3>
-                <p>
-                    <i class="fa fa-calendar-plus-o" aria-hidden="true"></i> @Model.Birthday.Value.ToShortDateString()
-                </p>
-                <p>
-                    <i class="fa fa-building-o" aria-hidden="true"></i> @Model.Organization
-                </p>
-                <p>
-                    <i class="fa fa-briefcase" aria-hidden="true"></i> @Model.Position
-                </p>
-                @foreach (var item in @Model.ContactsPhones)
-                {
-                    <p>
-                        <i class="fa fa-phone" aria-hidden="true"></i> @item.Phone
-                    </p>
-                }
-                @foreach (var item in @Model.ContactsEmails)
-                {
-                    <p>
-                        <i class="fa fa-envelope" aria-hidden="true"></i> @item.Email
-                    </p>
-                }
-                @foreach (var item in @Model.ContactsSkypes)
-                {
-                    <p>
-                        <i class="fa fa-skype" aria-hidden="true"></i> @item.Skype
-                    </p>
-                }
-            </div>
-        </div>
-        <div class="w3-col l4">
-            @switch (Model.Gender)
-            {
-                case 0:     //Female
-                    switch (Model.Name.Length % 2)
-                    {
-                        case 0: <img class="w3-card-4" src="/Content/images/avatar0.png" style="width:100%" /> break;
-                        default: <img class="w3-card-4" src="/Content/images/avatar00.png" style="width:100%" /> break;
-                    }
-                    break;
-                case 1:     //Male
-                    switch (Model.Name.Length % 2)
-                    {
-                        case 0: <img class="w3-card-4" src="/Content/images/avatar1.png" style="width:100%" /> break;
-                        default: <img class="w3-card-4" src="/Content/images/avatar11.png" style="width:100%" /> break;
-                    }
-                    break;
-                default:    //Unknown
-                    <img class="w3-card-4" src="/Content/images/avatar2.png" style="width:100%" />
-                    break;
-            }
-        </div>
-*@
-
-
 <div class="w3-col l8">
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
-
+        
         <p>
             <h3 style="padding: 0 0; margin: 0 0;">
                 @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "w3-input", @style = "padding: 0 2px; margin: 0;" } })
@@ -74,6 +16,12 @@
                 @Html.EditorFor(model => model.Patronymic, new { htmlAttributes = new { @class = "w3-input", @style = "padding: 0 2px; margin: 0;" } })
                 @Html.ValidationMessageFor(model => model.Patronymic, "", new { @class = "text-danger" })
             </h3>
+        </p>
+
+        <p>
+            <i class="fa fa-transgender w3-padding-4" aria-hidden="true" style="float:left;"></i>
+            @Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "w3-input", @style = "padding: 0 2px; margin: 0;" } })
+            @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
         </p>
 
         <p>
@@ -94,9 +42,11 @@
             @Html.ValidationMessageFor(model => model.Position, "", new { @class = "text-danger" })
         </p>
 
+        @Html.EditorFor(model => model.ContactsPhones)
+
         <p>
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Сохранить" class="btn btn-default" />
             </div>
         </p>
     }
@@ -124,3 +74,29 @@
             break;
     }
 </div>
+
+
+@*for(int i = 0; i < Model.ContactsPhones.Count; i++)
+    {
+        <p>
+            <i class="fa fa-phone w3-padding-4" aria-hidden="true" style="float:left;"></i>
+            @Html.EditorFor(model => model.ContactsPhones.ElementAt(i) , new { htmlAttributes = new { @class = "w3-input", @style = "padding: 0 2px; margin: 0;" } })
+            @Html.ValidationMessageFor(model => model.ContactsPhones.ElementAt(i), "", new { @class = "text-danger" })
+        </p>
+    }
+    @for (int i = 0; i < Model.ContactsEmails.Count; i++)
+    {
+        <p>
+            <i class="fa fa-envelope w3-padding-4" aria-hidden="true" style="float:left;"></i>
+            @Html.EditorFor(model => model.ContactsEmails.ElementAt(i), new { htmlAttributes = new { @class = "w3-input", @style = "padding: 0 2px; margin: 0;" } })
+            @Html.ValidationMessageFor(model => model.ContactsEmails.ElementAt(i), "", new { @class = "text-danger" })
+        </p>
+    }
+    @for (int i = 0; i < Model.ContactsSkypes.Count; i++)
+    {
+        <p>
+            <i class="fa fa-skype w3-padding-4" aria-hidden="true" style="float:left;"></i>
+            @Html.EditorFor(model => model.ContactsSkypes.ElementAt(i), new { htmlAttributes = new { @class = "w3-input", @style = "padding: 0 2px; margin: 0;" } })
+            @Html.ValidationMessageFor(model => model.ContactsSkypes.ElementAt(i), "", new { @class = "text-danger" })
+        </p>
+    }*@

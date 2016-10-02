@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-
+    
         <!-- кнопки добавить/изменить/удалить -->
         <div class="w3-row w3-margin-top">
             <div class="w3-col m3">
@@ -42,7 +42,7 @@
         </div>
 
         <!-- добавить контакт -->
-        @Html.Partial("_Create", Model.Focus)
+        @Html.Partial("_Create", new OrganizerMVC.Models.Contacts())
 
         <!-- удалить контакт-->
         @Html.Partial("_Delete", Model.Focus)

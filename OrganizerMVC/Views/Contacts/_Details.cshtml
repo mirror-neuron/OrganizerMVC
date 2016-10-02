@@ -23,7 +23,15 @@
                         @foreach (var item in @Model.ContactsPhones)
                         {
                             <p>
-                                <i class="fa fa-phone" aria-hidden="true"></i> @item.Phone
+                                @if (item.Type == "Mobile")
+                                {
+                                    <i class="fa fa-mobile" aria-hidden="true"></i>
+                                }
+                                else
+                                {
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                }
+                                @item.Phone
                             </p>
                         }
                         @foreach (var item in @Model.ContactsEmails)
@@ -36,6 +44,12 @@
                         {
                             <p>
                                 <i class="fa fa-skype" aria-hidden="true"></i> @item.Skype
+                            </p>
+                        }
+                        @foreach (var item in @Model.ContactsOthers)
+                        {
+                            <p>
+                                <i class="fa fa-sticky-note-o" aria-hidden="true"></i> @item.Other
                             </p>
                         }
                     </div>

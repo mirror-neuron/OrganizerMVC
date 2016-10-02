@@ -245,6 +245,7 @@
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\ProgressController.cs" />
     <Compile Include="Controllers\SchedulerController.cs" />
+    <Compile Include="Extensions\MvcHtmlExtension.cs" />
     <Compile Include="Models\CalendarEvent.cs" />
     <Compile Include="Models\Contacts.cs">
       <DependentUpon>Database.tt</DependentUpon>
@@ -311,6 +312,7 @@
     <Content Include="Views\Contacts\_Slider.cshtml" />
     <Content Include="Views\Contacts\_Edit.cshtml" />
     <Content Include="Views\Contacts\_Create.cshtml" />
+    <Content Include="Views\Contacts\EditorTemplate\ContactsPhones.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -327,6 +329,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

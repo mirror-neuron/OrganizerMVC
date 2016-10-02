@@ -56,15 +56,17 @@ namespace OrganizerMVC.Controllers
         // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Surname,Name,Patronymic,Birthday,Organization,Position")] Contacts contacts)
+        [ActionName("Create")]
+        public ActionResult Create_Post()
         {
+            var contacts = new Contacts();
+            TryUpdateModel(contacts);
             if (ModelState.IsValid)
             {
                 db.Contacts.Add(contacts);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(contacts);
         }
 
@@ -88,8 +90,11 @@ namespace OrganizerMVC.Controllers
         // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Surname,Name,Patronymic,Birthday,Organization,Position")] Contacts contacts)
+        [ActionName("Edit")]
+        public ActionResult Edit_Post()
         {
+            var contacts = new Contacts();
+            TryUpdateModel(contacts);
             if (ModelState.IsValid)
             {
                 db.Entry(contacts).State = EntityState.Modified;
