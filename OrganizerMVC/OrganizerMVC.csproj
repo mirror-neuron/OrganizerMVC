@@ -207,6 +207,7 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="Fragments\JsonResponse.ashx" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
@@ -256,8 +257,8 @@
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\ProgressController.cs" />
     <Compile Include="Controllers\SchedulerController.cs" />
-    <Compile Include="Extensions\MvcHtmlExtension.cs" />
-    <Compile Include="Models\CalendarEvent.cs" />
+    <Compile Include="Fragments\MvcHtmlExtension.cs" />
+    <Compile Include="Models\ImproperCalendarEvent.cs" />
     <Compile Include="Models\Contacts.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
@@ -292,8 +293,7 @@
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\FullContacts.cs" />
-    <Compile Include="Models\EventDAO.cs" />
-    <Compile Include="Models\ImproperCalendarEvent.cs" />
+    <Compile Include="Fragments\EventDAO.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">

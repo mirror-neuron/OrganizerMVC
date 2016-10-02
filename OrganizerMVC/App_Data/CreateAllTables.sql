@@ -82,25 +82,30 @@ CREATE INDEX [IX_ContactsOthers_ContactId] ON [dbo].[ContactsOthers] ([ContactId
 
 GO
 
-CREATE TABLE [dbo].[Events]
-(
-	[Id] INT IDENTITY (1, 1) NOT NULL,
-	[Status] TINYINT NOT NULL,
-    [Type] NVARCHAR(10) NOT NULL, 
-    [Subject] NVARCHAR(512) NULL, 
-    [StartDate] DATETIME NOT NULL, 
-    [EndDate] DATETIME NULL, 
-    [Place] NVARCHAR(256) NULL, 
-    CONSTRAINT [PK_Events] PRIMARY KEY ([Id]) 
-)
-GO
+CREATE TABLE [dbo].[Events] (
+    [Id]          INT            IDENTITY (1, 1) NOT NULL,
+    [Status]      TINYINT        NOT NULL,
+    [Title]       NVARCHAR (10)  NOT NULL,
+    [Description] NVARCHAR (512) NULL,
+    [Start]       DATETIME       NOT NULL,
+    [End]         DATETIME       NULL,
+    [FullDay]     BIT            NOT NULL DEFAULT 0,
+    [Place]       NVARCHAR (256) NULL,
+    CONSTRAINT [PK_Events] PRIMARY KEY CLUSTERED ([Id] ASC)
+);
 
-CREATE INDEX [IX_Events_Type] ON [dbo].[Events] ([Type])
 
 GO
+CREATE NONCLUSTERED INDEX [IX_Events_Type]
+    ON [dbo].[Events]([Title] ASC);
 
-CREATE INDEX [IX_Events_StartDate] ON [dbo].[Events] ([StartDate])
 
 GO
+CREATE NONCLUSTERED INDEX [IX_Events_Start]
+    ON [dbo].[Events]([Start] ASC);
 
-CREATE INDEX [IX_Events_EndDate] ON [dbo].[Events] ([EndDate])
+
+GO
+CREATE NONCLUSTERED INDEX [IX_Events_End]
+    ON [dbo].[Events]([End] ASC);
+

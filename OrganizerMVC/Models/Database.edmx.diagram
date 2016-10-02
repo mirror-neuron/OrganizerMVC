@@ -10,11 +10,11 @@
         <EntityTypeShape EntityType="DbModel.ContactsOthers" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DbModel.ContactsPhones" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DbModel.ContactsSkypes" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbModel.Events" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="DbModel.FK_ContactsEmails_ToContacts" ManuallyRouted="false" />
         <AssociationConnector Association="DbModel.FK_ContactsOthers_ToContacts" ManuallyRouted="false" />
         <AssociationConnector Association="DbModel.FK_ContactsPhones_ToContacts" ManuallyRouted="false" />
         <AssociationConnector Association="DbModel.FK_ContactsSkypes_ToContacts" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DbModel.Events" Width="1.5" PointX="6.75" PointY="1.875" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

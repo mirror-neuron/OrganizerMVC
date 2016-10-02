@@ -16,10 +16,11 @@ namespace OrganizerMVC.Models
     {
         public int Id { get; set; }
         public byte Status { get; set; }
-        public string Type { get; set; }
-        public string Subject { get; set; }
-        public System.DateTime StartDate { get; set; }
-        public Nullable<System.DateTime> EndDate { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public System.DateTime Start { get; set; }
+        public Nullable<System.DateTime> End { get; set; }
+        public bool FullDay { get; set; }
         public string Place { get; set; }
     }
 }
