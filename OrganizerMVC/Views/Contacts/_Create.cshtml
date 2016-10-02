@@ -6,7 +6,7 @@
             <span class="w3-closebtn" onclick="document.getElementById('addContact').style.display='none'">&times;</span>
             <h2>Добавить контакт</h2>
         </header>
-        @using (Html.BeginForm())
+        @using (Html.BeginForm("Create", "Contacts"))
         {
             @Html.AntiForgeryToken()
 
@@ -77,10 +77,6 @@
                 </div>
             </div>
         }
-
-        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-        <script src="~/Scripts/jquery.validate.min.js"></script>
-        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
         <div class="w3-container w3-light-grey w3-border-top w3-padding-8">
             <button class="w3-btn w3-right w3-green" onclick="document.getElementById('addContact').style.display = 'none'">

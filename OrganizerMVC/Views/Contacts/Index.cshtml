@@ -19,7 +19,7 @@
             </div>
         </div>
     
-        <!-- кнопки добавить/изменить/удалить -->
+        <!-- кнопки -->
         <div class="w3-row w3-margin-top">
             <div class="w3-col m3">
                 <button onclick="document.getElementById('addContact').style.display='block'" class="w3-btn-block w3-green">Добавить</button>
@@ -27,7 +27,8 @@
 
             <div class="w3-col m9 w3-display-container">
                 <div class="w3-right-align">
-                    <!--изменить контакт-->
+
+                    <!--изменить контакт -->
                     <span>
                         @Ajax.ActionLink("Изменить", "Edit", new { Id = Model.Focus.Id }, new AjaxOptions()
                            {
