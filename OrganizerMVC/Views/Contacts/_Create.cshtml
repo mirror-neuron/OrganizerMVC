@@ -72,11 +72,16 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Create" class="btn btn-default" onclick="location.href='@Url.Action("Create")'" />
+                        <input type="submit" value="Create" class="btn btn-default" />
                     </div>
                 </div>
             </div>
         }
+
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
         <div class="w3-container w3-light-grey w3-border-top w3-padding-8">
             <button class="w3-btn w3-right w3-green" onclick="document.getElementById('addContact').style.display = 'none'">
                 Close
@@ -85,7 +90,9 @@
     </div>
 </div>
 
-@*<div id="addContact" class="w3-modal w3-card-4">
+@*  MODAL CREATION WITH TASTY JAVASCRIPT
+    
+    <div id="addContact" class="w3-modal w3-card-4">
         <div class="w3-modal-content w3-animate-bottom">
             <header class="w3-container w3-green">
                 <span onclick="document.getElementById('addContact').style.display='none'" class="w3-closebtn">&times;</span>
