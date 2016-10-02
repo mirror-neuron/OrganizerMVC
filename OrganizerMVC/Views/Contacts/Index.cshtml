@@ -22,7 +22,7 @@
         <!-- кнопки добавить/изменить/удалить -->
         <div class="w3-row w3-margin-top">
             <div class="w3-col m3">
-                <button onclick="document.getElementById('addContact').style.display='block'" class="w3-btn-block w3-green">Добавить</but   ton>
+                <button onclick="document.getElementById('addContact').style.display='block'" class="w3-btn-block w3-green">Добавить</button>
             </div>
 
             <div class="w3-col m9 w3-display-container">
@@ -41,101 +41,8 @@
             </div>
         </div>
 
-        <!-- модальные формы -->
-        <div id="addContact" class="w3-modal w3-card-4">
-            <div class="w3-modal-content w3-animate-bottom">
-                <header class="w3-container w3-green">
-                    <span onclick="document.getElementById('addContact').style.display='none'" class="w3-closebtn">&times;</span>
-                    <h2>Добавить контакт</h2>
-                </header>
-                <form class="w3-container" action="form.asp">
-                    <div class="w3-row">
-                        <span class="w3-col m4">
-                            <label>Имя</label>
-                            <input class="w3-input w3-border" name="firstname" type="text" required />
-                        </span>
-                        <span class="w3-col m4">
-                            <label>Фамилия</label>
-                            <input class="w3-input w3-border" name="Lastname" type="text" />
-                        </span>
-                        <span class="w3-col m4">
-                            <label>Отчество</label>
-                            <input class="w3-input w3-border" name="Patronimic" type="text" />
-                        </span>
-                    </div>
-                    <div class="w3-row">
-                        <span class="w3-col m4">
-                            <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
-                            <label>Дата рождения</label>
-                            <input class="w3-input w3-border" type="date" name="birthdate">
-                        </span>
-                    </div>
-                    <div class="w3-row">
-                        <span class="w3-col m4">
-                            <i class="fa fa-building-o" aria-hidden="true"></i>
-                            <label>Место работы</label>
-                            <input class="w3-input w3-border" type="text" name="workplace">
-                        </span>
-                        <span class="w3-col m4">
-                            <i class="fa fa-briefcase" aria-hidden="true"></i>
-                            <label>Должность</label>
-                            <input class="w3-input w3-border" type="text" name="">
-                        </span>
-                    </div>
-                    <div class="w3-row">
-                        <script>
-                            function cloneInput(childId, parentId) {
-                                var newphone = document.getElementById(childId).cloneNode(true);
-                                newphone.removeAttribute("id");
-                                newphone.getElementsByTagName("input")[0].value = "";
-                                document.getElementById(parentId).appendChild(newphone);
-                            }
-                        </script>
-                        <div class="w3-col m4">
-                            <p id="phones">
-                                <span id="phone">
-                                    <i class="fa fa-phone" aria-hidden="true"></i>
-                                    <label>Телефон</label>
-                                    <input class="w3-input w3-border" type="tel" name="tel">
-                                </span>
-                            </p>
-                            <p>
-                                <a class="w3-btn-floating w3-teal" onclick="cloneInput('phone','phones')">+</a>
-                            </p>
-                        </div>
-                        <div class="w3-col m4">
-                            <p id="emails">
-                                <span id="email">
-                                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    <label>E-mail</label>
-                                    <input class="w3-input w3-border" type="email" name="email">
-                                </span>
-                            </p>
-                            <p>
-                                <a class="w3-btn-floating w3-teal" onclick="cloneInput('email', 'emails')">+</a>
-                            </p>
-                        </div>
-                        <div class="w3-col m4">
-                            <p id="skypes">
-                                <span id="skype">
-                                    <i class="fa fa-skype" aria-hidden="true"></i>
-                                    <label>Скайп</label>
-                                    <input class="w3-input w3-border" type="text" name="workplace">
-                                </span>
-                            </p>
-                            <p>
-                                <a class="w3-btn-floating w3-teal" onclick="cloneInput('skype', 'skypes')">+</a>
-                            </p>
-                        </div>
-                    </div>
-                </form>
-                <div class="w3-container w3-light-grey w3-border-top w3-padding-8">
-                    <button class="w3-btn w3-right w3-green" onclick="document.getElementById('addContact').style.display = 'none'">
-                        Close
-                    </button>
-                </div>
-            </div>
-        </div>
+        <!-- добавить контакт -->
+        @Html.Partial("_Create", Model.Focus)
 
         <!-- удалить контакт-->
         @Html.Partial("_Delete", Model.Focus)

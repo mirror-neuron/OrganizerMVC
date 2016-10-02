@@ -4,6 +4,14 @@
                     <div class="w3-col l8">
                         <h3>@Model.Surname<br/>@Model.Name<br />@Model.Patronymic</h3>
                         <p>
+                            @if (Model.Gender == 0)
+                            { <i class="fa fa-venus" aria-hidden="true"></i> <span>Жен.</span>}
+                            else if (Model.Gender == 1)
+                            { <i class="fa fa-mars" aria-hidden="true"></i> <span>Муж.</span> }
+                            else
+                            { <i class="fa fa-transgender" aria-hidden="true"></i> <span>Неизв.</span> }
+                        </p>
+                        <p>
                             <i class="fa fa-calendar-plus-o" aria-hidden="true"></i> @Model.Birthday.Value.ToShortDateString()
                         </p>
                         <p>

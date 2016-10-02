@@ -310,6 +310,7 @@
     <Content Include="Views\Contacts\_Delete.cshtml" />
     <Content Include="Views\Contacts\_Slider.cshtml" />
     <Content Include="Views\Contacts\_Edit.cshtml" />
+    <Content Include="Views\Contacts\_Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

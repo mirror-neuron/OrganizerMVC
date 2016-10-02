@@ -1,0 +1,180 @@
+﻿@model OrganizerMVC.Models.Contacts
+
+@*<div id="addContact" class="w3-modal w3-card-4">
+        <div class="w3-modal-content w3-animate-bottom">
+            <header class="w3-container w3-green">
+                <span onclick="document.getElementById('addContact').style.display='none'" class="w3-closebtn">&times;</span>
+                <h2>Добавить контакт</h2>
+            </header>
+            <form class="w3-container" action="form.asp">
+                <div class="w3-row">
+                    <span class="w3-col m4">
+                        <label>Имя</label>
+                        <input class="w3-input w3-border" name="firstname" type="text" required />
+                    </span>
+                    <span class="w3-col m4">
+                        <label>Фамилия</label>
+                        <input class="w3-input w3-border" name="Lastname" type="text" />
+                    </span>
+                    <span class="w3-col m4">
+                        <label>Отчество</label>
+                        <input class="w3-input w3-border" name="Patronimic" type="text" />
+                    </span>
+                </div>
+                <div class="w3-row">
+                    <span class="w3-col m4">
+                        <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+                        <label>Дата рождения</label>
+                        <input class="w3-input w3-border" type="date" name="birthdate">
+                    </span>
+                </div>
+                <div class="w3-row">
+                    <span class="w3-col m4">
+                        <i class="fa fa-building-o" aria-hidden="true"></i>
+                        <label>Место работы</label>
+                        <input class="w3-input w3-border" type="text" name="workplace">
+                    </span>
+                    <span class="w3-col m4">
+                        <i class="fa fa-briefcase" aria-hidden="true"></i>
+                        <label>Должность</label>
+                        <input class="w3-input w3-border" type="text" name="">
+                    </span>
+                </div>
+                <div class="w3-row">
+                    <script>
+                        function cloneInput(childId, parentId) {
+                            var newphone = document.getElementById(childId).cloneNode(true);
+                            newphone.removeAttribute("id");
+                            newphone.getElementsByTagName("input")[0].value = "";
+                            document.getElementById(parentId).appendChild(newphone);
+                        }
+                    </script>
+                    <div class="w3-col m4">
+                        <p id="phones">
+                            <span id="phone">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                <label>Телефон</label>
+                                <input class="w3-input w3-border" type="tel" name="tel">
+                            </span>
+                        </p>
+                        <p>
+                            <a class="w3-btn-floating w3-teal" onclick="cloneInput('phone','phones')">+</a>
+                        </p>
+                    </div>
+                    <div class="w3-col m4">
+                        <p id="emails">
+                            <span id="email">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <label>E-mail</label>
+                                <input class="w3-input w3-border" type="email" name="email">
+                            </span>
+                        </p>
+                        <p>
+                            <a class="w3-btn-floating w3-teal" onclick="cloneInput('email', 'emails')">+</a>
+                        </p>
+                    </div>
+                    <div class="w3-col m4">
+                        <p id="skypes">
+                            <span id="skype">
+                                <i class="fa fa-skype" aria-hidden="true"></i>
+                                <label>Скайп</label>
+                                <input class="w3-input w3-border" type="text" name="workplace">
+                            </span>
+                        </p>
+                        <p>
+                            <a class="w3-btn-floating w3-teal" onclick="cloneInput('skype', 'skypes')">+</a>
+                        </p>
+                    </div>
+                </div>
+            </form>
+            <div class="w3-container w3-light-grey w3-border-top w3-padding-8">
+                <button class="w3-btn w3-right w3-green" onclick="document.getElementById('addContact').style.display = 'none'">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>*@
+<div id="addContact" class="w3-modal w3-card-4">
+    <div class="w3-modal-content w3-animate-bottom">
+        <header class="w3-container w3-green">
+            <span onclick="document.getElementById('addContact').style.display='none'" class="w3-closebtn">&times;</span>
+            <h2>Добавить контакт</h2>
+        </header>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>Contacts</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Surname, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Surname, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Patronymic, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Patronymic, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Patronymic, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Birthday, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Birthday, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Organization, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Organization, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Organization, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Position, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Position, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Position, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="w3-container w3-light-grey w3-border-top w3-padding-8">
+            <button class="w3-btn w3-right w3-green" onclick="document.getElementById('addContact').style.display = 'none'">
+                Close
+            </button>
+        </div>
+    </div>
+</div>
