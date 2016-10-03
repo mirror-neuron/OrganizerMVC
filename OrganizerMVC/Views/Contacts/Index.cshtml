@@ -21,14 +21,14 @@
     
         <!-- кнопки -->
         <div class="w3-row w3-margin-top">
+            <!-- создать контакт -->
             <div class="w3-col m3">
                 <button onclick="document.getElementById('addContact').style.display='block'" class="w3-btn-block w3-green">Добавить</button>
             </div>
 
             <div class="w3-col m9 w3-display-container">
                 <div class="w3-right-align">
-
-                    <!--изменить контакт -->
+                    <!-- изменить контакт -->
                     <span>
                         @Ajax.ActionLink("Изменить", "Edit", new { Id = Model.Focus.Id }, new AjaxOptions()
                            {
@@ -37,6 +37,7 @@
                                InsertionMode = InsertionMode.Replace
                            }, new { @class = "w3-btn w3-blue" })
                     </span>
+                    <!-- удалить контакт-->
                     <span><button onclick="document.getElementById('delContact').style.display='block'" class="w3-btn w3-red">Удалить</button></span>
                 </div>
             </div>
@@ -45,5 +46,5 @@
         <!-- добавить контакт -->
         @Html.Partial("_Create", new OrganizerMVC.Models.Contacts())
 
-        <!-- удалить контакт-->
+        <!-- модальня форма удаления контакта -->
         @Html.Partial("_Delete", Model.Focus)

@@ -139,15 +139,11 @@
     <Content Include="App_Data\FillContactsTable.sql" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
-    <Content Include="Content\fullcalendar.css" />
-    <Content Include="Content\fullcalendar.min.css" />
-    <Content Include="Content\fullcalendar.print.css" />
     <Content Include="Content\images\avatar0.png" />
     <Content Include="Content\images\avatar1.png" />
     <Content Include="Content\images\avatar2.png" />
     <Content Include="Content\images\contacts.png" />
     <Content Include="Content\images\favicon.ico" />
-    <Content Include="Content\images\fish.png" />
     <Content Include="Content\images\schedule.png" />
     <Content Include="Content\jquery-ui-timepicker-addon.css" />
     <Content Include="Content\jquery-ui-timepicker-addon.min.css" />
@@ -208,16 +204,9 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
-    <Content Include="Fragments\JsonResponse.ashx" />
-    <None Include="scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="scripts\jquery-1.10.2.js" />
-    <Content Include="scripts\jquery-1.10.2.min.js" />
-    <Content Include="scripts\jquery-1.10.2.min.map" />
+    <Content Include="JsonResponse.ashx" />
     <None Include="scripts\jquery-2.1.1.intellisense.js" />
-    <Content Include="scripts\fullcalendar-usage.js" />
     <Content Include="scripts\fullcalendar.js" />
-    <Content Include="scripts\fullcalendar.min.js" />
-    <Content Include="scripts\gcal.js" />
     <Content Include="scripts\html5shiv-printshiv.js" />
     <Content Include="scripts\html5shiv-printshiv.min.js" />
     <Content Include="scripts\html5shiv.js" />
@@ -237,7 +226,6 @@
     <Content Include="scripts\jquery.validate.min.js" />
     <Content Include="scripts\jquery.validate.unobtrusive.js" />
     <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="scripts\lang-all.js" />
     <Content Include="scripts\lang\ru.js" />
     <Content Include="scripts\qTip\jquery.qtip.css" />
     <Content Include="scripts\qTip\jquery.qtip.js" />
@@ -249,7 +237,9 @@
     <Content Include="scripts\respond.min.js" />
     <Content Include="scripts\selectivizr-1.0.2.js" />
     <Content Include="scripts\selectivizr-1.0.2.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="scripts\qTip\jquery.qtip.min.js.map" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Template.cshtml" />
