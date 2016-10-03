@@ -51,34 +51,53 @@
                 parent.appendChild(newphone);
             }
         </script>
-        if (Model.ContactsPhones.Count > 0)
-        {
-            <p id="phoneList" class="w3-display-container" style="max-width:310px;">
-                <span onclick="cloneField('span', 'phoneList')" class="w3-display-bottomright w3-hover-text-green"><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+        <p id="phoneList" class="w3-display-container" style="max-width:310px;">
+            <span onclick="cloneField('span', 'phoneList')" class="w3-display-bottomright w3-hover-text-green"><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+            @if (Model.ContactsPhones.Count > 0)
+            {
                 @Html.EditorFor(model => model.ContactsPhones)
-            </p>
-        }
-        if (Model.ContactsEmails.Count > 0)
-        {
-            <p id="emailList" class="w3-display-container" style="max-width:310px;">
-                <span onclick="cloneField('span', 'emailList')" class="w3-display-bottomright w3-hover-text-green"><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+            }
+            else
+            {
+                @Html.Partial("~/Views/EditorTemplates/ContactsPhones.cshtml", new OrganizerMVC.Models.ContactsPhones())
+            }
+        </p>
+
+        <p id="emailList" class="w3-display-container" style="max-width:310px;">
+            <span onclick="cloneField('span', 'emailList')" class="w3-display-bottomright w3-hover-text-green"><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+            @if (Model.ContactsEmails.Count > 0)
+            {
                 @Html.EditorFor(model => model.ContactsEmails)
-            </p>
-        }
-        if (Model.ContactsSkypes.Count > 0)
-        {
-            <p id="skypeList" class="w3-display-container" style="max-width:310px;">
-                <span onclick="cloneField('span', 'skypeList')" class="w3-display-bottomright w3-hover-text-green"><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+            }
+            else
+            {
+                @Html.Partial("~/Views/EditorTemplates/ContactsEmails.cshtml", new OrganizerMVC.Models.ContactsPhones())
+            }
+        </p>
+
+        <p id="skypeList" class="w3-display-container" style="max-width:310px;">
+            <span onclick="cloneField('span', 'skypeList')" class="w3-display-bottomright w3-hover-text-green"><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+            @if (Model.ContactsSkypes.Count > 0)
+            {
                 @Html.EditorFor(model => model.ContactsSkypes)
-            </p>
-        }
-        if (Model.ContactsOthers.Count > 0)
-        {
-            <p id="otherList" class="w3-display-container" style="max-width:310px;">
-                <span onclick="cloneField('span', 'otherList')" class="w3-display-bottomright w3-hover-text-green"><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+            }
+            else
+            {
+                @Html.Partial("~/Views/EditorTemplates/ContactsSkypes.cshtml", new OrganizerMVC.Models.ContactsSkypes())
+            }
+        </p>
+        
+        <p id="otherList" class="w3-display-container" style="max-width:310px;">
+            <span onclick="cloneField('span', 'otherList')" class="w3-display-bottomright w3-hover-text-green"><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+            @if (Model.ContactsOthers.Count > 0)
+            {
                 @Html.EditorFor(model => model.ContactsOthers)
-            </p>
-        }
+            }
+            else
+            {
+                @Html.Partial("~/Views/EditorTemplates/ContactsOthers.cshtml", new OrganizerMVC.Models.ContactsOthers())
+            }
+        </p>
 
         <p>
             <span>

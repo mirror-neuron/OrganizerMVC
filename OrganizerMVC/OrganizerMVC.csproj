@@ -146,6 +146,7 @@
     <Content Include="Content\images\avatar1.png" />
     <Content Include="Content\images\avatar2.png" />
     <Content Include="Content\images\contacts.png" />
+    <Content Include="Content\images\favicon.ico" />
     <Content Include="Content\images\fish.png" />
     <Content Include="Content\images\schedule.png" />
     <Content Include="Content\jquery-ui-timepicker-addon.css" />

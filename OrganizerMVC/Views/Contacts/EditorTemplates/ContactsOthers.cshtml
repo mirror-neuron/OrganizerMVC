@@ -1,6 +1,6 @@
 ﻿@model OrganizerMVC.Models.ContactsOthers
 <span>
-    <i class="fa fa-sticky-note-o w3-padding-4" aria-hidden="true" style="float:left;"></i>
+    <i class="fa fa-sticky-note w3-padding-4" aria-hidden="true" style="float:left;"></i>
     @Html.EditorFor(model => model.Other, new { htmlAttributes = new { @class = "w3-input", @style = "padding: 0 2px; margin: 0;" } })
     @Html.ValidationMessageFor(model => model.Other, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.ContactId)
