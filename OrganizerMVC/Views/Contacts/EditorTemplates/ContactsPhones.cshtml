@@ -1,8 +1,9 @@
 ﻿@model OrganizerMVC.Models.ContactsPhones
-<p>
+<span>
     <i class="fa fa-phone w3-padding-4" aria-hidden="true" style="float:left;"></i>
     @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "w3-input", @style = "padding: 0 2px; margin: 0;" } })
     @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
-</p>
-@Html.HiddenFor(model => model.Id)
-@Html.HiddenFor(model => model.ContactId)
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.ContactId)
+    @Html.HiddenFor(model => model.Type)
+</span>

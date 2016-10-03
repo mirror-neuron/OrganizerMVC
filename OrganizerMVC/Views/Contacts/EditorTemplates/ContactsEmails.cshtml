@@ -1,0 +1,14 @@
+﻿@model OrganizerMVC.Models.ContactsEmails
+<span>
+    <i class="fa fa-envelope w3-padding-4" aria-hidden="true" style="float:left;"></i>
+    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "w3-input", @style = "padding: 0 2px; margin: 0;" } })
+    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.ContactId)
+    @Html.HiddenFor(model => model.Id)
+</span>
+<script>
+    function codeAddress() {
+        alert('ok');
+    }
+    window.onload = codeAddress;
+</script>

@@ -1,0 +1,8 @@
+﻿@model OrganizerMVC.Models.ContactsSkypes
+<span>
+    <i class="fa fa-skype w3-padding-4" aria-hidden="true" style="float:left;"></i>
+    @Html.EditorFor(model => model.Skype, new { htmlAttributes = new { @class = "w3-input", @style = "padding: 0 2px; margin: 0;" } })
+    @Html.ValidationMessageFor(model => model.Skype, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.ContactId)
+    @Html.HiddenFor(model => model.Id)
+</span>

@@ -15,7 +15,7 @@
                     @using (Html.BeginForm("Delete", "Contacts", new { Id = Model.Id }))
                     {
                         @Html.AntiForgeryToken()
-                        <input type="submit" value="Delete" class="w3-btn w3-right w3-red" onclick="document.getElementById('delContact').style.display = 'none'"/>
+                        <input type="submit" value="Удалить" class="w3-btn w3-right w3-red" onclick="document.getElementById('delContact').style.display = 'none'"/>
                     }
                 </div>
             </div>

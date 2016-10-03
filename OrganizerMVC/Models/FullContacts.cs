@@ -8,6 +8,6 @@ namespace OrganizerMVC.Models
     public class FullContacts
     {
         public Contacts Focus { get; set; }
-        public IEnumerable<Contacts> Contacts { get; set; }
+        public List<Contacts> Contacts { get; set; }
     }
 }

@@ -23,38 +23,38 @@
                         <p>
                             <i class="fa fa-briefcase" aria-hidden="true"></i> @Model.Position
                         </p>
-                        @foreach (var item in @Model.ContactsPhones)
-                        {
-                            <p>
-                                @if (item.Type == "Mobile")
-                                {
-                                    <i class="fa fa-mobile" aria-hidden="true"></i>
-                                }
-                                else
-                                {
-                                    <i class="fa fa-phone" aria-hidden="true"></i>
-                                }
-                                @item.Phone
-                            </p>
-                        }
-                        @foreach (var item in @Model.ContactsEmails)
-                        {
-                            <p>
-                                <i class="fa fa-envelope" aria-hidden="true"></i> @item.Email
-                            </p>
-                        }
-                        @foreach (var item in @Model.ContactsSkypes)
-                        {
-                            <p>
-                                <i class="fa fa-skype" aria-hidden="true"></i> @item.Skype
-                            </p>
-                        }
-                        @foreach (var item in @Model.ContactsOthers)
-                        {
-                            <p>
-                                <i class="fa fa-sticky-note-o" aria-hidden="true"></i> @item.Other
-                            </p>
-                        }
+                        <p>
+                            @foreach (var item in @Model.ContactsPhones)
+                            {
+                                <div>
+                                    <i class="fa fa-phone" aria-hidden="true"></i> @item.Phone
+                                </div>
+                            }
+                        </p>
+                        <p>
+                            @foreach (var item in @Model.ContactsEmails)
+                            {
+                                <div>
+                                    <i class="fa fa-envelope" aria-hidden="true"></i> @item.Email
+                                </div>
+                            }
+                        </p>
+                        <p>
+                            @foreach (var item in @Model.ContactsSkypes)
+                            {
+                                <div>
+                                    <i class="fa fa-skype" aria-hidden="true"></i> @item.Skype
+                                </div>
+                            }
+                        </p>
+                        <p>
+                            @foreach (var item in @Model.ContactsOthers)
+                            {
+                                <div>
+                                    <i class="fa fa-sticky-note-o" aria-hidden="true"></i> @item.Other
+                                </div>
+                            }
+                        </p>
                     </div>
                 </div>
                 <div class="w3-col l4">

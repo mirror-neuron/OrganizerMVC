@@ -1,12 +1,12 @@
 ﻿@model OrganizerMVC.Models.Contacts
 
 <div class="w3-col l8">
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Edit", "Contacts"))
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
-        
+
         <p>
             <h3 style="padding: 0 0; margin: 0 0;">
                 @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "w3-input", @style = "padding: 0 2px; margin: 0;" } })
@@ -16,12 +16,6 @@
                 @Html.EditorFor(model => model.Patronymic, new { htmlAttributes = new { @class = "w3-input", @style = "padding: 0 2px; margin: 0;" } })
                 @Html.ValidationMessageFor(model => model.Patronymic, "", new { @class = "text-danger" })
             </h3>
-        </p>
-        
-        <p>
-            <i class="fa fa-transgender" aria-hidden="true" style="float:left;"></i>
-            @Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "w3-input", @style = "padding: 0 2px; margin: 0;" } })
-            @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
         </p>
 
         <p>
@@ -48,12 +42,48 @@
             @Html.ValidationMessageFor(model => model.Position, "", new { @class = "text-danger" })
         </p>
 
-        @*Html.EditorFor(model => model.ContactsPhones)*@
+        <!-- clonable fields -->
+        <script>
+            function cloneField(childTag, parentId) {
+                var parent = document.getElementById(parentId);
+                var newphone = parent.getElementsByTagName(childTag)[1].cloneNode(true);
+                newphone.getElementsByTagName("input")[0].value = "";
+                parent.appendChild(newphone);
+            }
+        </script>
+        if (Model.ContactsPhones.Count > 0)
+        {
+            <p id="phoneList" class="w3-display-container" style="max-width:310px;">
+                <span onclick="cloneField('span', 'phoneList')" class="w3-display-bottomright w3-hover-text-green"><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+                @Html.EditorFor(model => model.ContactsPhones)
+            </p>
+        }
+        if (Model.ContactsEmails.Count > 0)
+        {
+            <p id="emailList" class="w3-display-container" style="max-width:310px;">
+                <span onclick="cloneField('span', 'emailList')" class="w3-display-bottomright w3-hover-text-green"><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+                @Html.EditorFor(model => model.ContactsEmails)
+            </p>
+        }
+        if (Model.ContactsSkypes.Count > 0)
+        {
+            <p id="skypeList" class="w3-display-container" style="max-width:310px;">
+                <span onclick="cloneField('span', 'skypeList')" class="w3-display-bottomright w3-hover-text-green"><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+                @Html.EditorFor(model => model.ContactsSkypes)
+            </p>
+        }
+        if (Model.ContactsOthers.Count > 0)
+        {
+            <p id="otherList" class="w3-display-container" style="max-width:310px;">
+                <span onclick="cloneField('span', 'otherList')" class="w3-display-bottomright w3-hover-text-green"><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
+                @Html.EditorFor(model => model.ContactsOthers)
+            </p>
+        }
 
         <p>
-            <div class="col-md-offset-2 col-md-10">
+            <span>
                 <input type="submit" value="Сохранить" class="btn btn-default" />
-            </div>
+            </span>
         </p>
     }
 </div>
@@ -80,29 +110,3 @@
             break;
     }
 </div>
-
-
-@*for(int i = 0; i < Model.ContactsPhones.Count; i++)
-    {
-        <p>
-            <i class="fa fa-phone w3-padding-4" aria-hidden="true" style="float:left;"></i>
-            @Html.EditorFor(model => model.ContactsPhones.ElementAt(i) , new { htmlAttributes = new { @class = "w3-input", @style = "padding: 0 2px; margin: 0;" } })
-            @Html.ValidationMessageFor(model => model.ContactsPhones.ElementAt(i), "", new { @class = "text-danger" })
-        </p>
-    }
-    @for (int i = 0; i < Model.ContactsEmails.Count; i++)
-    {
-        <p>
-            <i class="fa fa-envelope w3-padding-4" aria-hidden="true" style="float:left;"></i>
-            @Html.EditorFor(model => model.ContactsEmails.ElementAt(i), new { htmlAttributes = new { @class = "w3-input", @style = "padding: 0 2px; margin: 0;" } })
-            @Html.ValidationMessageFor(model => model.ContactsEmails.ElementAt(i), "", new { @class = "text-danger" })
-        </p>
-    }
-    @for (int i = 0; i < Model.ContactsSkypes.Count; i++)
-    {
-        <p>
-            <i class="fa fa-skype w3-padding-4" aria-hidden="true" style="float:left;"></i>
-            @Html.EditorFor(model => model.ContactsSkypes.ElementAt(i), new { htmlAttributes = new { @class = "w3-input", @style = "padding: 0 2px; margin: 0;" } })
-            @Html.ValidationMessageFor(model => model.ContactsSkypes.ElementAt(i), "", new { @class = "text-danger" })
-        </p>
-    }*@

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using OrganizerMVC.Models;
+using System.Diagnostics;
 
 namespace OrganizerMVC.Controllers
 {
@@ -29,7 +30,7 @@ namespace OrganizerMVC.Controllers
         // GET: Contacts
         public ActionResult Index(int? id)
         {
-            return View(new FullContacts { Focus = FindOrRandom(id), Contacts = db.Contacts.OrderBy(x=>x.Surname).ToArray() });
+            return View(new FullContacts { Focus = FindOrRandom(id), Contacts = db.Contacts.OrderBy(x=>x.Surname).ToList() });
         }
 
         // GET: Contacts/Details/5
@@ -92,7 +93,10 @@ namespace OrganizerMVC.Controllers
             TryUpdateModel(contacts);
             if (ModelState.IsValid)
             {
-                db.Entry(contacts).State = EntityState.Modified;
+                //не очень код, но работает!
+                db.Contacts.Remove(db.Contacts.Find(contacts.Id));
+                db.SaveChanges();
+                db.Contacts.Add(contacts);
                 db.SaveChanges();
                 return RedirectToAction("Index", new { Id = contacts.Id });
             }
@@ -109,6 +113,14 @@ namespace OrganizerMVC.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        /*public ActionResult ContactsPhones()
+        {
+            Contacts contacts = db.Contacts.Find(id);
+            db.Contacts.Remove(contacts);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }*/
 
         protected override void Dispose(bool disposing)
         {

@@ -257,6 +257,7 @@
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\ProgressController.cs" />
     <Compile Include="Controllers\SchedulerController.cs" />
+    <Compile Include="Fragments\DbContextExtension.cs" />
     <Compile Include="Fragments\MvcHtmlExtension.cs" />
     <Compile Include="Models\ImproperCalendarEvent.cs" />
     <Compile Include="Models\Contacts.cs">
@@ -320,7 +321,10 @@
     <Content Include="Views\Contacts\_Slider.cshtml" />
     <Content Include="Views\Contacts\_Edit.cshtml" />
     <Content Include="Views\Contacts\_Create.cshtml" />
-    <Content Include="Views\Contacts\EditorTemplate\ContactsPhones.cshtml" />
+    <Content Include="Views\Contacts\EditorTemplates\ContactsPhones.cshtml" />
+    <Content Include="Views\Contacts\EditorTemplates\ContactsEmails.cshtml" />
+    <Content Include="Views\Contacts\EditorTemplates\ContactsSkypes.cshtml" />
+    <Content Include="Views\Contacts\EditorTemplates\ContactsOthers.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
