@@ -139,6 +139,8 @@
     <Content Include="App_Data\FillContactsTable.sql" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\fullcalendar.min.css" />
+    <Content Include="Content\fullcalendar.print.css" />
     <Content Include="Content\images\avatar0.png" />
     <Content Include="Content\images\avatar1.png" />
     <Content Include="Content\images\avatar2.png" />
@@ -207,6 +209,8 @@
     <Content Include="JsonResponse.ashx" />
     <None Include="scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="scripts\fullcalendar.js" />
+    <Content Include="scripts\fullcalendar.min.js" />
+    <Content Include="scripts\gcal.js" />
     <Content Include="scripts\html5shiv-printshiv.js" />
     <Content Include="scripts\html5shiv-printshiv.min.js" />
     <Content Include="scripts\html5shiv.js" />
@@ -226,7 +230,12 @@
     <Content Include="scripts\jquery.validate.min.js" />
     <Content Include="scripts\jquery.validate.unobtrusive.js" />
     <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="scripts\lang-all.js" />
     <Content Include="scripts\lang\ru.js" />
+    <Content Include="scripts\moment-with-locales.js" />
+    <Content Include="scripts\moment-with-locales.min.js" />
+    <Content Include="scripts\moment.js" />
+    <Content Include="scripts\moment.min.js" />
     <Content Include="scripts\qTip\jquery.qtip.css" />
     <Content Include="scripts\qTip\jquery.qtip.js" />
     <Content Include="scripts\qTip\jquery.qtip.min.css" />

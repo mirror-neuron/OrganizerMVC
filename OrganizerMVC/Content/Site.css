@@ -4,17 +4,19 @@ body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
-
 .w3-content {
     padding-left: 15px;
     padding-right: 15px;
     max-width: 1100px;
 }
+.w3-navbar {
+    z-index: 10;
+}
 
+/* Contacts */
 input, select, textarea {
     max-width: 280px;
 }
-
 #myList li {
     padding: 0 0;
 }
@@ -22,6 +24,46 @@ input, select, textarea {
     display: block;
     padding:6px 2px;
     text-decoration: none;
+}
+
+/* Fullcalendar */
+#calendar {
+    width: 100%;
+    min-width: 500px;
+    max-height: 400px;
+}
+.fc-view {
+    box-shadow:0 2px 4px 0 rgba(0,0,0,0.2),0 2px 10px 0 rgba(0,0,0,0.19)!important;
+}
+
+.fc-center h2 {
+    font-size: 25px;
+}
+.ui-widget-header {
+    background: #f44336 !important;
+    border-width: 0px !important;
+    border-right-width: 1px;
+    font-weight: normal;
+    color: #ffffff;
+    padding: 4px 0;
+}
+.fc-button-group {
+    box-shadow:0 2px 4px 0 rgba(0,0,0,0.2),0 2px 10px 0 rgba(0,0,0,0.19)!important;
+    border-radius:4px!important;
+}
+.fc-today-button {
+    box-shadow:0 2px 4px 0 rgba(0,0,0,0.2),0 2px 10px 0 rgba(0,0,0,0.19)!important;
+    border-radius:4px!important;
+}
+.fc-toolbar {
+    margin-bottom: 0;
+}
+
+.ui-state-default {
+    background: #f3f3f3 !important;
+}
+.ui-widget-content {
+    background: #f3f3f3;
 }
 
 /* Timepicker */
@@ -40,25 +82,4 @@ input, select, textarea {
 .style1
 {
 	width: 100%;
-}
-
-/* Fullcalendar */
-#calendar
-{
-	width: 60%;
-    min-width: 500px;
-	margin: 0 auto;
-    text-align: center;
-	font-size: 14px;
-}
-.alignRight
-{
-	text-align:right;
-	padding-right:10px;
-	padding-bottom:10px;
-}
-.alignLeft
-{
-	text-align:left;
-	padding-bottom:10px;
 }

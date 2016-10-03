@@ -4,11 +4,11 @@
             ViewBag.Title = string.Format("{0} {1}", Model.Focus.Surname, Model.Focus.Name);
         }
 
-        <h1>Контакты</h1>
+        <h2>Контакты</h2>
 
         <div class="w3-row">
             <!-- слайдер -->
-            <div class="w3-col m3">
+            <div id="slider" class="w3-col m3">
                 @Html.Partial("_Slider", Model.Contacts)
             </div>
             <!-- подробная информация контакта -->

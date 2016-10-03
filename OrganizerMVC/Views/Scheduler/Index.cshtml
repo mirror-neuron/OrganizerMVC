@@ -4,9 +4,9 @@
         }
 
         <h2>Ежедневник</h2>
-
         <div id="calendar"></div>
         
+        <!-- FullCalendar usage -->
         <script>
             var currentUpdateEvent;
             var addStartDate;
@@ -179,7 +179,7 @@
                 // update Dialog
                 $('#updatedialog').dialog({
                     autoOpen: false,
-                    width: 1000,
+                    width: 470,
                     buttons: {
                         "update": function () {
                             //alert(currentUpdateEvent.title);
@@ -272,6 +272,7 @@
                     selectHelper: true,
                     select: selectDate,
                     editable: true,
+                    //events: "JsonResponse.ashx",
                     events: [
                             {
                                 title: 'Sales Meeting',
@@ -295,7 +296,6 @@
                                 className: 'fc-event-width-overirde'
                             }         
                     ],
-                    // events: "JsonResponse.ashx",
                     eventDrop: eventDropped,
                     eventResize: eventResized,
                     eventRender: function (event, element) {
